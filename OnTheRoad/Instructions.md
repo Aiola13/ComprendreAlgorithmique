@@ -113,7 +113,7 @@ maVariable ← <expression>
 
 ## Les appels aux fonctions et procédures
 Qu'est ce qu'une procédure et une fonction ?
-Aussi appelées **`routine`**, elles prennent une liste d'arguments en paramètre (entre parenthèses) et se définissent par :
+Aussi appelées **`routine`** (un bloc de code), elles prennent une liste d'arguments en paramètre (entre parenthèses) et se définissent par :
 * Procédure : Instruction qui ne renvoi pas de valeur (ex : Une structure de comparaison)
 * Fonction : Instruction qui a contrario renvoi une valeur
 
@@ -187,11 +187,18 @@ Remarque : la partie SINON <instruction> est facultative.
 
 Attention : Le FIN_SI est obligatoire ! Il en sera de même pour toutes les instructions structurées : cette marque de fin doit être présente même si il n’y a qu’une seule instruction.
 
-##### Exemple - FaitLeTotal - équivalent boucle *POUR*
+##### Exemple 
 
 Pseudo-code 
 ``` 
-{Cette algorithme fait la somme des nbVal saisit, arrêt à la lesture de -1 ou après 5 saisies}
+SI note >= 12
+    ALORS afficher("Reçu avec mention AB")
+    SINON SI note > 10
+        ALORS afficher("Reçu mention Passable")
+        SINON afficher("Insuffisant")
+        FSI
+    FSI
+FSI
 ```
 
 
@@ -216,7 +223,11 @@ FIN_SELON
 
 Pseudo-code 
 ``` 
-{Cette algorithme fait la somme des nbVal saisit, arrêt à la lesture de -1 ou après 5 saisies}
+SELON abrevation
+    "M": afficher("Monsieur")
+    "Mme": afficher("Madame")
+    "Mlle": afficher("Mademoiselle")
+    AUTREMENT: afficher("Monsieur, Madame")
 ```
 
 [comment]: # (BOUCLES)
@@ -230,9 +241,9 @@ Utilisation : Structure itérative "universelle", elle peut être utilisé tout 
 
 Pseudo-code 
 ``` 
-*TANT QUE* _<expression logique booléenne vraie>_ *faire*
+TANT_QUE <expression logique booléenne vraie> faire
     <traitement> {suite d'instruction}
-*FIN TANT QUE*
+FIN_TANT_QUE
 ```
 
 #### Sa sémantique
@@ -256,11 +267,11 @@ Début
     afficher("Donner une valeur, " ,stop, " pour fini.")
     lire(valeur)
 
-    *tant que* _valeur_ <> _stop_ *faire*
+    TANT_QUE valeur <> stop faire
         totalValeurs ← totalValeurs + valeur
         afficher("Donner une autre valeur, " ,stop, " pour fini.")
         lire(valeur) {relance}
-    *ftq*
+    FTQ
 
     afficher("Le total des valeurs saisies est ", totalValeurs)
 Fin
@@ -283,12 +294,12 @@ Début
     afficher("Donner une valeur, " ,stop, " pour fini.")
     lire(valeur) {saisie de la 1ère donnée}
 
-    *tant que* _valeur_ <> _stop_ ET _nbVal_ < _max_ *faire*
+    TANT_QUE valeur <> stop ET nbVal < max faire
         totalValeurs ← totalValeurs + valeur
         nbVal ← nbVal + 1 
         afficher("Donner une autre valeur, " ,stop, " pour fini.")
         lire(valeur) {relance}
-    *ftq*
+    FTQ
 
     afficher("Le total des valeurs saisies est ", totalValeurs, " pour, ", nbVal, "  itérations.")
 Fin
@@ -313,9 +324,9 @@ Utilisation : Utilisée lorsque le nombre d'itération est connu.
 
 Pseudo-code 
 ``` 
-*Répéter*
+REPETER
     <traitement> {suite d'instruction}
-*tant que* _<expression logique booléenne vraie>_ 
+TANT_QUE <expression logique booléenne vraie>
 ```
 
 #### Sa sémantique
@@ -341,12 +352,12 @@ Début
     lire(nbVal)
     totalVal ← 0
 
-    *Répéter* 
+    REPETER 
         afficher("Donner une autre valeur, " ,stop, " pour fini.")
         lire(valeur) {relance}
         totalValeurs ← totalValeurs + valeur
         nbVal ← nbVal + 1 
-    *tant que* _valeur_ <> _stop_ ET _nbVal_ < _max_
+    TANT_QUE valeur <> stop ET nbVal < max
 
     afficher("Le total des ", nbVal, "valeurs est ", totalValeurs)
 Fin
@@ -379,9 +390,9 @@ Utilisation : Utilisée lorsque le nombre d'itération est connu.
 
 Pseudo-code 
 ``` lolcode
-*pour* _<compteur>_ de _<valeurInitiale>_ à _<valeurFinale>_ [par pas de  _<incrément>_] *faire*
+POUR <compteur> de <valeurInitiale> à <valeurFinale> [par pas de  <incrément>] faire
     <traitement> {suite d'instruction}
-*fpour*
+FPOUR
 ```
 
 #### Sa sémantique
@@ -411,87 +422,13 @@ Début
     totalVal ← 0
 
     {traitement qui se répète nbVal fois}
-    *pour* _cpt_ ← 1 à _nbVal_ [faire par pas de 1]
+    POUR cpt ← 1 à nbVal [faire par pas de 1]
         afficher("Donner une valeur : ")
         lire(valeur)
         totalValeurs ← totalValeurs + valeur {Cumul}
-    *fpour*
+    FPOUR
     {édition des résultats}
 
     afficher("Le total des ", nbVal, "valeurs est ", totalValeurs)
 Fin
 ```
-
-
-
-
-
-
-
-Structures de répétition
-La répétitive : TANT QUE
-Syntaxe :
-TANT_QUE <expression booléenne> 
-       <instruction>
-       ...
-FIN_TANT_QUE
-1
-2
-3
-4
-TANT_QUE <expression booléenne> 
-       <instruction>
-       ...
-FIN_TANT_QUE
-(En anglais : WHILE – ENDWHILE)
-
-Fonctionnement :
-Les instructions sont répétées tant que la condition est vérifiée. Comme le test est au début, les instructions peuvent donc ne jamais être exécutées.
-
-Attention : il est impératif que la condition devienne fausse à un moment. Pour cela il faut que l’expression booléenne contienne au moins une variable qui sera modifiée dans la boucle.
-
-La répétitive : REPETER – JUSQU’A
-Syntaxe :
-REPETER
-       <instruction>
-       ...
-JUSQU'A <expression booléenne>
-1
-2
-3
-4
-REPETER
-       <instruction>
-       ...
-JUSQU'A <expression booléenne>
-(En anglais : REPEAT – UNTIL)
-
-Fonctionnement :
-La condition est placée après les instructions, elles sont exécutées donc au moins une fois puis tant que la condition reste satisfaite.
-
-L’itérative : POUR
-Elle permet de répéter une série d’instructions un nombre déterminé de fois (donc connu à l’avance).
-
-Syntaxe :
-POUR <ident_var> ALLANT_DE <valeur_début> A <valeur_fin> {PAR_PAS_DE <incrément>}
-       <instruction>
-       ...
-FIN_POUR
-1
-2
-3
-4
-POUR <ident_var> ALLANT_DE <valeur_début> A <valeur_fin> {PAR_PAS_DE <incrément>}
-       <instruction>
-       ...
-FIN_POUR
-(En anglais : FOR – TO – ENDFOR)
-
-Fonctionnement :
-La variable est nécessairement de type scalaire : entier, caractère ou énumération. Les expressions de début et de fin doivent être compatibles avec elle. Elle prend successivement toutes les valeurs comprises entre les deux bornes, dans l’ordre croisant ou décroissant (si l’incrément est négatif). Elle ne peut pas être modifiée dans la boucle ! La déclaration de l’incrément lorsqu’il est unitaire peut être omise.
-
-La boucle POUR est un cas particulier de la boucle TANT QUE. Si on connait à l’avance le nombre de répétitions à effectuer, la boucle POUR est toute indiquée. A l’inverse, si la décision d’arrêter la boucle ne peut s’exprimer que par un test, c’est la boucle TANT QUE qu’il faut choisir.
-
-
-
-
