@@ -432,3 +432,8 @@ Début
     afficher("Le total des ", nbVal, "valeurs est ", totalValeurs)
 Fin
 ```
+
+
+----
+
+<p align="right">Prêt pour la prochaine partie ? 😉 [C'est par ici](./Functions.md)</p>

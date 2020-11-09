@@ -66,4 +66,7 @@ CONSTANTES MACONSTANTE, ... : type  ...
 
 ⛔ /!\ Une constante ne peut être modifiée dans l’algorithme.
 
+----
+
+<p align="right">Prêt pour la prochaine partie ? 😉 [C'est par ici](./Instructions.md)</p>
 

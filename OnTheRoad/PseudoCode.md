@@ -77,3 +77,8 @@ Il est vivement conseillé d’insérer des commentaires dans son algorithme. Le
 // un commentaire
 1
 // un commentaire
+
+
+-----
+
+<p align="right">Prêt pour la prochaine partie ? 😉 [C'est par ici](./Data.md)</p>
