@@ -436,4 +436,4 @@ Fin
 
 ----
 
-<p align="right">Prêt pour la prochaine partie ? 😉 [C'est par ici](./Functions.md)</p>
+# Prêt pour la prochaine partie ? 😉 [C'est par ici](./Functions.md)

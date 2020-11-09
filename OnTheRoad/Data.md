@@ -68,5 +68,6 @@ CONSTANTES MACONSTANTE, ... : type  ...
 
 ----
 
-<p align="right">Prêt pour la prochaine partie ? 😉 [C'est par ici](./Instructions.md)</p>
+# Prêt pour la prochaine partie ? 😉 [C'est par ici](./Instructions.md)# 
+
 
