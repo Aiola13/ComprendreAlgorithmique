@@ -68,7 +68,7 @@ RÉEL | CARACTÈRE | CHAINE | OU | ET |
 Un certain nombre de caractères et de combinaisons de caractères ont une signification spéciale pour le langage algorithmique. 
 En voici la liste :
 
-←	^	.	,	:	{	}	[	]	<=	>=	<>	=	+	–	*	/	(
+←	^	.	,	:	{	}	[	]	<=	>=	<>	=	+	–	*	/	()
 
 ### Les commentaires
 

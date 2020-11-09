@@ -1,303 +1,238 @@
-# Boucles et Conditions
+# Les instructions
 
+## Les expressions
+Une expression représente une succession de calculs, elle peut faire intervenir des constantes, des variables, des fonctions et des opérateurs.
 
-```{r echo=TRUE, eval=TRUE}
-All the comments!
-```
-
-Les instructions
-Les expressions
-Une expression représente une succession de calculs ; elle peut faire intervenir des constantes, des variables, des fonctions et des opérateurs. Les expressions sont utilisées dans tout l’algorithme : dans les affectations, en paramètre des routines, dans les structures de contrôles…
-
-Expression : syntaxe
 Une expression peut être :
+- une valeur	
+- une variable
+- une constante
+- un appel à une fonction
+- Opérateur Binaire
+  - <expression> opérateurBinaire <expression> 
+- Opérateur Unaire
+  - opérateurUnaire <expression>
+    - incrémetation $x++$
+    - Opposé $-x$
+    - Valeur Absolue $|x|$
+    - Carré $x^2$
+- Opérateur Logique (ce que nos appelons `Expression Booléenne`)
 
-une valeur	42
-une variable	x
-une constante	C
-un appel à une fonction	cos(x)
-<expression> opérateurBinaire <expression>	32 + x
-opérateurUnaire <expression>	non A
-Les opérateurs :
-– Les opérateurs arithmétiques
+### Les opérateurs :
+### Les opérateurs arithmétiques
+* Les classiques :
+  * `–` (unaire)	Changement de signe
+  * `+`	Addition
+  * `–`	Soustraction
+  * `*`	Multiplication
+  * `/`	Division flottante ou euclidienne
+  * `%`   Modulo (reste de la division entière)
+  
+N.B : Les opérandes peuvent être du type entier (le résultat est entier) ou réel (le résultat est reel), sauf pour la division flottante, où le résultat sera toujours de type réel et pour le module, où le resultat sera toujours un entier.
 
-Les classiques :
-– (unaire)	Changement de signe
-+	Addition
-–	Soustraction
-*	Multiplication
-/	Division flottante
-Les opérandes peuvent être du type entier (le résultat est entier) ou réel (le résultat est reel), sauf pour la division flottante, où le résultat sera toujours de type réel.
+### Les opérateurs logiques (et binaires) (de comparaison)
+Lorsque opérandes sont booléennes, on a alors une opération logique. Le résultat est un booléen. Les expressions booléennes sont utilisées comme conditions dans les structures de contrôles.
 
-La division entière :
-DIV	Division entière
-MOD	Modulo (reste de la division entière)
-Ces deux opérateurs ne fonctionnent qu’avec des entiers.
+* Négation logique
+  * En français (NON) 
+  * En anglais (NOT) 
+  * En signe (!)
+* Et logique
+  * En français (ET) 
+  * En anglais (AND) 
+  * En signe (&&)
+* Ou logique
+  * En français (OU) 
+  * En anglais (OR) 
+  * En signe (||)
+* Ou exclusif
+  * En français (OUEX) 
+  * En anglais (XOR) 
+  * En signe (^)
 
-– Les opérateurs logiques (et binaires)
+**Rappels** : avec a et b des booléens ou des expressions booléennes :
+* `a ET b`
+    + n’est vrai que si a est vrai et b est vrai
+    + est faux dès qu’un des deux est faux
 
-Les opérandes sont booléennes, on a alors une opération logique. Le résultat est un booléen. Les expressions booléennes sont utilisées comme conditions dans les structures de contrôles.
+![Mon image](../images/monimage.jpg)
 
-NON (NOT)
-négation logique ( ( neg ) )
-ET (AND)
-et logique ( ( wedge ) )
-OU (OR)
-ou logique ( ( vee ) )
-OUEX (XOR)
-ou exclusif
-Rappels : avec a et b des booléens ou des expressions booléennes :
+* `a OU b`
+    + n’est faux que si a est faux et b est faux
+    + est vrai dès qu’un des deux est vrai
 
-a ET b
-n’est vrai que si a est vrai et b est vrai	est faux dès qu’un des deux est faux
-a OU b
-n’est faux que si a est faux et b est faux	est vrai dès qu’un des deux est vrai
-a OUEX b	est vrai si un des deux seulement est vrai	est équivalent à a<>b
-Important : Les opérateurs et et ou sont séquentiels : si l’évaluation de la première opérande suffit à donner le résultat, la deuxième n’est pas évaluée. Ainsi, si a est faux, a et b sera faux, sans que b n’ait été évalué.
+![Mon image](../images/monimage.jpg)
 
-Note : On utilisera les mêmes opérateurs sur des entiers non signés, on a alors des opérations sur bits. Les opérateurs fonctionnent de la même manière, le vrai correspondant à 1, le faux à 0.
+* `a OUEX b`
+    + est vrai si un des deux seulement est vrai	
+    + est équivalent à `a != b` ou `a <> b`
 
-Les opérateurs relationnels
+![Mon image](../images/monimage.jpg)
+  
 
+**Important** : Les opérateurs `et` et `ou` sont séquentiels : si l’évaluation de la première opérande suffit à donner le résultat, la deuxième n’est pas évaluée.
+
+
+### Les opérateurs relationnels
 Les deux opérandes doivent être de types compatibles. Le résultat est toujours de type booléen : vrai ou faux.
 
-=	égal
-<>	différent
-<	inférieur à
->	supérieur
-<=	inférieur ou égal
->=	supérieur ou égal
-La concaténation de chaînes
+* `=`	    égal
+* `<>` ou `!=`    différent
+* `<`	    strictement inférieur à
+* `>`	    strictement supérieur à
+* `<=`	inférieur ou égal
+* `>=`	supérieur ou égal
 
+
+### La concaténation de chaînes
 L’opérateur « + » peut être utilisé avec les chaînes de caractères et les caractères pour la concaténation.
 
-Règles d’évaluation des expressions
-Priorité des opérateurs, par ordre décroissant :
+```
+a ← 5
+afficher("Ma variable est a = " + a)
 
-opérateurs unaires	– ; non
-opérateurs multiplicatifs	* ; / ; div ; mod ; et
-opérateurs additifs	+ ; – ; ou
-opérateurs relationnels	= ; < ; <= ; > ; >= ; <> (ou !=)
-Les expressions entre parenthèses sont entièrement évaluées avant d’intervenir dans la suite des calculs.
+$ Ma variable est a = 5
+```
 
-Concordance de type : un opérateur binaire ne peut porter que sur deux valeurs du même type. Une exception a lieu lorsqu’une valeur est réelle et l’autre entière. Dans ce cas la valeur entière est convertie en une valeur réelle. Cette règle s’applique pour les opérateurs arithmétiques (+, -, *, /) et ceux de comparaisons.
+### Règles des priorités des expressions 
+Les mêmes règles s'appliquent qu'en mathétiques et arithmétiques ...
 
-L’affectation
+Classement par ordre décroissant :
+* opérateurs unaires
+* opérateurs arithmétiques
+* opérateurs relationnels
+
+
+## L’affectation
 Cette instruction permet d’affecter une valeur à une variable. La valeur peut être n’importe quelle expression de type compatible avec la variable.
 
-Syntaxe :
-ident_var ← <expression>
-1
-ident_var ← <expression>
-avec ident_var : un identifiant de variable
-Fonctionnement
-ident_var ← <valeur>
-1
-ident_var ← <valeur>
-Une valeur (une expression) ne peut en aucun cas figurer à gauche d’une affectation.
-Une variable figurant à droite d’une affectation (et plus généralement dans toute expression) doit obligatoirement contenir une valeur.
-Les appels aux fonctions et procédures
-L’appel d’une procédure ou d’une fonction (routine) se fait par son nom suivi, s’il y a lieu, de la liste des arguments placés entre parenthèses. Il faut respecter l’ordre de déclaration des paramètres. Lorsque le passage se fait par adresse (paramètre global), l’argument doit obligatoirement être une variable. S’il est passé par valeur (paramètre local), il peut s’agir d’une expression quelconque. La distinction entre les différents paramètres sera vue en détail dans la partie consacrée aux procédures et fonctions.
+Syntaxe
+```
+maVariable ← <expression>
+```
 
-Appel de procédure = une instruction
+## Les appels aux fonctions et procédures
+Qu'est ce qu'une procédure et une fonction ?
+Aussi appelées **`routine`**, elles prennent une liste d'arguments en paramètre (entre parenthèses) et se définissent par :
+* Procédure : Instruction qui ne renvoi pas de valeur (ex : Une structure de comparaison)
+* Fonction : Instruction qui a contrario renvoi une valeur
+
+
+### Appel de procédure = une instruction
 L’appel de procédure est une instruction à part entière :
+```
+procedure(param1, param2, ...)
+```
 
-ident_procedure(param1, param2, ...)
-1
-ident_procedure(param1, param2, ...)
-Exemples de procédures : les entrées-sorties
 
-Les procédures d’affichage : ECRIRE ou AFFICHER
-(En anglais : PRINT, DISPLAY)
+#### Exemples de procédures : les entrées-sorties
+* Les procédures d’affichage : ECRIRE ou AFFICHER
+<p align="right">(En anglais : PRINT or DISPLAY)</p>
 
+```
 ECRIRE("Nombre de voitures : ", x)
-1
-ECRIRE("Nombre de voitures : ", x)
-affiche sur l’écran (ou écrit dans un fichier) la chaîne ‘Nombre de voitures : ‘, suivi du contenu de la variable x.
 
+"affiche sur l’écran (ou écrit dans un fichier) la chaîne ‘Nombre de voitures : ‘, suivi du contenu de la variable x."
+```
+OU
+```
 AFFICHE(12+a)
-1
-AFFICHE(12+a)
-affiche la valeur de l’expression12+a.
 
-La procédure de lecture : LIRE
-(En anglais : READ)
+"affiche la valeur de l’expression12+a."
+```
 
+* La procédure de lecture : LIRE
+<p align="right">(En anglais : READ)</p>
+
+```
 LIRE(x)
-1
-LIRE(x)
+
 affecte à la variable x la valeur saisie (sur le clavier ou dans un fichier).
+```
 
-Appel de fonction
-Une fonction est une routine qui retourne une valeur. L’appel de fonction sera donc utilisable comme n’importe quelle autre valeur (dans une expression, en paramètre d’une routine, …). Par exemple dans une affectation :
+### Appel de fonction
+L’appel de procédure est une instruction à part entière :
+```
+variable ← fonction(param1, param2, ...)
+```
 
-ident_var ← ident_fonction(param1, param2, ...)
-1
-ident_var ← ident_fonction(param1, param2, ...)
-Note : un appel de fonction seul n’est pas une instruction !
+**Note** : un appel de fonction seul n’est pas une instruction !
 
-Les structures de choix
-L’alternative : SI – ALORS – SINON
+
+
+
+# Boucles et Conditions
+[comment]: # (CONDITIONS)
+## Structure Alternative et de choix
+### Structure Alternative
+Admettons la condition suivante
+SI - ALORS - SINON
+
+Fonctionnement : Si la condition (exprimée par l’expression booléenne) est vraie alors seule la suite d’instructions placée après le ALORS sera exécutée. Dans le cas contraire, si la partie SINON existe elle sera exécutée, si elle n’existe pas, rien ne se passe.
+Utilisation : 
+
 Syntaxe :
+```
 SI <expression booléenne> ALORS
-       <instruction>
-       ...
-SINON
-       <instruction>
-       ... 
+    <instruction>
+    ...
+    SINON <instruction>
+    ...
 FIN_SI
-1
-2
-3
-4
-5
-6
-7
-SI <expression booléenne> ALORS
-       <instruction>
-       ...
-SINON
-       <instruction>
-       ... 
-FIN_SI
-(En anglais : IF – THEN – ELSE – ENDIF)
+```
+<p align="right">(En anglais : IF - THEN - ELSE - ENDIF)</p>
+
 
 Remarque : la partie SINON <instruction> est facultative.
 
 Attention : Le FIN_SI est obligatoire ! Il en sera de même pour toutes les instructions structurées : cette marque de fin doit être présente même si il n’y a qu’une seule instruction.
 
-Fonctionnement
-Si la condition (exprimée par l’expression booléenne) est vraie alors seule la suite d’instructions placée après le ALORS sera exécutée. Dans le cas contraire, si la partie SINON existe elle sera exécutée, si elle n’existe pas, rien ne se passe.
+##### Exemple - FaitLeTotal - équivalent boucle *POUR*
 
-Choix multiples : SELON
-Syntaxe :
-SELON <ident_var> 
-       <liste_valeur> : <instruction>
-            ...     : ...
-      {AUTREMENT : <instruction> }
-FIN_SELON
-1
-2
-3
-4
-5
-SELON <ident_var> 
-       <liste_valeur> : <instruction>
-            ...     : ...
-      {AUTREMENT : <instruction> }
-FIN_SELON
-(En anglais : CASE… OF – OTHERS – ENDCASE)
-
-<liste_valeur>= une liste de valeurs (séparées par des virgules).
-
-L’expression doit être de type scalaire : les types entiers et le type caractère.
-
-Fonctionnement
-Les instructions exécutées seront celles correspondant à la valeur de l’expression. Si celle-ci n’est pas dans une des liste, alors ce sera la partie autrement (si elle existe) qui sera exécutée.
-
-Structures de répétition
-La répétitive : TANT QUE
-Syntaxe :
-TANT_QUE <expression booléenne> 
-       <instruction>
-       ...
-FIN_TANT_QUE
-1
-2
-3
-4
-TANT_QUE <expression booléenne> 
-       <instruction>
-       ...
-FIN_TANT_QUE
-(En anglais : WHILE – ENDWHILE)
-
-Fonctionnement :
-Les instructions sont répétées tant que la condition est vérifiée. Comme le test est au début, les instructions peuvent donc ne jamais être exécutées.
-
-Attention : il est impératif que la condition devienne fausse à un moment. Pour cela il faut que l’expression booléenne contienne au moins une variable qui sera modifiée dans la boucle.
-
-La répétitive : REPETER – JUSQU’A
-Syntaxe :
-REPETER
-       <instruction>
-       ...
-JUSQU'A <expression booléenne>
-1
-2
-3
-4
-REPETER
-       <instruction>
-       ...
-JUSQU'A <expression booléenne>
-(En anglais : REPEAT – UNTIL)
-
-Fonctionnement :
-La condition est placée après les instructions, elles sont exécutées donc au moins une fois puis tant que la condition reste satisfaite.
-
-L’itérative : POUR
-Elle permet de répéter une série d’instructions un nombre déterminé de fois (donc connu à l’avance).
-
-Syntaxe :
-POUR <ident_var> ALLANT_DE <valeur_début> A <valeur_fin> {PAR_PAS_DE <incrément>}
-       <instruction>
-       ...
-FIN_POUR
-1
-2
-3
-4
-POUR <ident_var> ALLANT_DE <valeur_début> A <valeur_fin> {PAR_PAS_DE <incrément>}
-       <instruction>
-       ...
-FIN_POUR
-(En anglais : FOR – TO – ENDFOR)
-
-Fonctionnement :
-La variable est nécessairement de type scalaire : entier, caractère ou énumération. Les expressions de début et de fin doivent être compatibles avec elle. Elle prend successivement toutes les valeurs comprises entre les deux bornes, dans l’ordre croisant ou décroissant (si l’incrément est négatif). Elle ne peut pas être modifiée dans la boucle ! La déclaration de l’incrément lorsqu’il est unitaire peut être omise.
-
-La boucle POUR est un cas particulier de la boucle TANT QUE. Si on connait à l’avance le nombre de répétitions à effectuer, la boucle POUR est toute indiquée. A l’inverse, si la décision d’arrêter la boucle ne peut s’exprimer que par un test, c’est la boucle TANT QUE qu’il faut choisir.
+Pseudo-code 
+``` 
+{Cette algorithme fait la somme des nbVal saisit, arrêt à la lesture de -1 ou après 5 saisies}
+```
 
 
-
-
-
-
-
-
-
-[comment]: # (CONDITIONS)
-
-
-## Structure Alternative
-
+## Structure de Choix Multiple
 Admettons la condition suivante
+SELON
 
+Fonctionnement : Les instructions exécutées seront celles correspondant à la valeur de l’expression.
+Utilisation : L’expression doit être de type scalaire : les types entiers et le type caractère.
+
+Pseudo-Code
 ```
-
+SELON _<variable>_
+    <liste_valeur> : <instruction>
+            ...     : ...
+      {AUTREMENT : <instruction> }
+FIN_SELON
 ```
+<p align="right">(En anglais :  CASE… OF – OTHERS – ENDCASE)</p>
 
+##### Exemple - FaitLeTotal - équivalent boucle *POUR*
 
-
+Pseudo-code 
+``` 
+{Cette algorithme fait la somme des nbVal saisit, arrêt à la lesture de -1 ou après 5 saisies}
+```
 
 [comment]: # (BOUCLES)
-
-
-
 
 ## Structures de répétition
 
 ### Les boucles *TANT QUE ... FAIRE* (While...EndWhile)
 
-Fonction : Répéter une suite d'instructions un certain nombre de fois.
+Fonctionnement : Répéter une suite d'instructions un certain nombre de fois.
 Utilisation : Structure itérative "universelle", elle peut être utilisé tout le temps.
 
 Pseudo-code 
 ``` 
-*tant que* _<expression logique booléenne vraie>_ *faire*
+*TANT QUE* _<expression logique booléenne vraie>_ *faire*
     <traitement> {suite d'instruction}
-*ftq*
+*FIN TANT QUE*
 ```
 
 #### Sa sémantique
@@ -486,4 +421,77 @@ Début
     afficher("Le total des ", nbVal, "valeurs est ", totalValeurs)
 Fin
 ```
+
+
+
+
+
+
+
+Structures de répétition
+La répétitive : TANT QUE
+Syntaxe :
+TANT_QUE <expression booléenne> 
+       <instruction>
+       ...
+FIN_TANT_QUE
+1
+2
+3
+4
+TANT_QUE <expression booléenne> 
+       <instruction>
+       ...
+FIN_TANT_QUE
+(En anglais : WHILE – ENDWHILE)
+
+Fonctionnement :
+Les instructions sont répétées tant que la condition est vérifiée. Comme le test est au début, les instructions peuvent donc ne jamais être exécutées.
+
+Attention : il est impératif que la condition devienne fausse à un moment. Pour cela il faut que l’expression booléenne contienne au moins une variable qui sera modifiée dans la boucle.
+
+La répétitive : REPETER – JUSQU’A
+Syntaxe :
+REPETER
+       <instruction>
+       ...
+JUSQU'A <expression booléenne>
+1
+2
+3
+4
+REPETER
+       <instruction>
+       ...
+JUSQU'A <expression booléenne>
+(En anglais : REPEAT – UNTIL)
+
+Fonctionnement :
+La condition est placée après les instructions, elles sont exécutées donc au moins une fois puis tant que la condition reste satisfaite.
+
+L’itérative : POUR
+Elle permet de répéter une série d’instructions un nombre déterminé de fois (donc connu à l’avance).
+
+Syntaxe :
+POUR <ident_var> ALLANT_DE <valeur_début> A <valeur_fin> {PAR_PAS_DE <incrément>}
+       <instruction>
+       ...
+FIN_POUR
+1
+2
+3
+4
+POUR <ident_var> ALLANT_DE <valeur_début> A <valeur_fin> {PAR_PAS_DE <incrément>}
+       <instruction>
+       ...
+FIN_POUR
+(En anglais : FOR – TO – ENDFOR)
+
+Fonctionnement :
+La variable est nécessairement de type scalaire : entier, caractère ou énumération. Les expressions de début et de fin doivent être compatibles avec elle. Elle prend successivement toutes les valeurs comprises entre les deux bornes, dans l’ordre croisant ou décroissant (si l’incrément est négatif). Elle ne peut pas être modifiée dans la boucle ! La déclaration de l’incrément lorsqu’il est unitaire peut être omise.
+
+La boucle POUR est un cas particulier de la boucle TANT QUE. Si on connait à l’avance le nombre de répétitions à effectuer, la boucle POUR est toute indiquée. A l’inverse, si la décision d’arrêter la boucle ne peut s’exprimer que par un test, c’est la boucle TANT QUE qu’il faut choisir.
+
+
+
 

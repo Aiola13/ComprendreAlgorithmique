@@ -64,6 +64,6 @@ CONSTANTES MACONSTANTE, ... : type  ...
 ```
 <p align="right">(En anglais : CONSTANTS)</p>
 
-/!\ Une constante ne peut être modifiée dans l’algorithme.
+⛔ /!\ Une constante ne peut être modifiée dans l’algorithme.
 
 
