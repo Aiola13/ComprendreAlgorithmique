@@ -1,6 +1,10 @@
-Black Friday Écrire un programme qui permet de demander, de calculer et d’afficher la réduction effective au produit par rapport à un pourcentage et le prix d’un produit après lui avoir appliqué un pourcentage de réduction.
+# Exercices
 
-Algo :
+## Black Friday
+
+- Écrire un programme qui permet de demander, de calculer et d’afficher la réduction effective au produit par rapport à un pourcentage et le prix d’un produit après lui avoir appliqué un pourcentage de réduction.
+
+Pseudo-Code :
 
 ```
 variables prixInit, tauxReduction, prixFinal, montantReduction : réels
@@ -20,13 +24,36 @@ Début
 Fin
 ```
 
-Écrire un algorithme qui demande un nombre à l’utilisateur, et l’informe ensuite si ce nombre est positif ou négatif (on laisse de côté le cas où le nombre vaut zéro).
+---
 
-variable nombreChoisi : entier
+## Neg or not neg (To Covid ...)
 
-Début afficher("Choisir un nombre entier : ") lire(nombreChoisi) si nombreChoisi > 0 alors afficher("nombre positif") sinon afficher("nombre négatif") fsi Fin
+- Écrire un algorithme qui demande un nombre à l’utilisateur, et l’informe ensuite si ce nombre est positif ou négatif (on laisse de côté le cas où le nombre vaut zéro).
 
-Début afficher("Choisir un nombre entier : ") lire(nombreChoisi)
+Pseudo-Code :
+
+```
+Variable nombreChoisi : entier
+Début
+    afficher("Choisir un nombre entier : ")
+    lire(nombreChoisi)
+
+    si nombreChoisi > 0
+        alors afficher("nombre positif")
+        sinon afficher("nombre négatif")
+    fsi
+
+Fin
+
+```
+
+- Ajout à l'algorithme du cas où le nombre est nul
+
+```
+Variable nombreChoisi : entier
+Début
+    afficher("Choisir un nombre entier : ")
+    lire(nombreChoisi)
 
     si nombreChoisi > 0
         alors afficher("nombre positif")
@@ -35,15 +62,26 @@ Début afficher("Choisir un nombre entier : ") lire(nombreChoisi)
             sinon afficher("nombre nul")
         fsi
     fsi
-
 Fin
+```
 
-Écrire un algorithme qui demande deux nombres à l’utilisateur et l’informe ensuite si leur produit est négatif ou positif (on laisse de côté le cas où le produit est nul). Attention toutefois : on ne doit pas calculer le produit des deux nombres.
+---
 
-GUILLAUME : variables n1, n2 : entier
+## Le produit
 
-Début afficher("Entrer un nombre : ") lire(n1)  
- afficher("Entrer un nouveau nombre : ") lire(n2)
+- Écrire un algorithme qui demande deux nombres à l’utilisateur et l’informe ensuite si leur produit est négatif ou positif (on laisse de côté le cas où le produit est nul). Attention toutefois : on ne doit pas calculer le produit des deux nombres.
+
+Pseudo-Code :
+
+❌
+
+```
+Variables n1, n2 : entier
+Début
+    afficher("Entrer un nombre : ")
+    lire(n1)
+    afficher("Entrer un nouveau nombre : ")
+    lire(n2)
 
     si n1 > 0 et n2 > 0
         alors afficher("Ce nombre est positif")
@@ -62,11 +100,20 @@ Début afficher("Entrer un nombre : ") lire(n1)
     fsi
 
 Fin
+```
 
-MAÏTE variables n1, n2 : entier
+** OPTIMISATION :** Cet algorithme va forcément traiter toutes les conditions **SI**, ce qui induira un temps de traitement plus long. ❌
 
-Début afficher("Entrer un nombre : ") lire(n1)  
- afficher("Entrer un nouveau nombre : ") lire(n2)
+❌
+
+```
+Variables n1, n2 : entier
+
+Début
+    afficher("Entrer un nombre : ")
+    lire(n1)
+    afficher("Entrer un nouveau nombre : ")
+    lire(n2)
 
     si n1 > 0 et n2 > 0
         alors afficher("Ce nombre est positif")
@@ -81,11 +128,20 @@ Début afficher("Entrer un nombre : ") lire(n1)
     fsi
 
 Fin
+```
 
+** OPTIMISATION :** Cet algorithme pourra traiter au maximum 4 conditions **SI**. ❌
+
+✅ ** OPTIMISE**
+
+```
 variables n1, n2 : entier autre
 
-Début afficher("Entrer un nombre : ") lire(n1)  
- afficher("Entrer un nouveau nombre : ") lire(n2)
+Début
+    afficher("Entrer un nombre : ")
+    lire(n1)
+    afficher("Entrer un nouveau nombre : ")
+    lire(n2)
 
     si (n1 > 0 ET n2 > 0) OU (n1 < 0 ET n2 < 0)
         alors afficher("ce nombre est positif")
@@ -94,12 +150,26 @@ Début afficher("Entrer un nombre : ") lire(n1)
     fsi
 
 Fin
+```
 
-Écrire un algorithme qui demande l’âge d’un enfant à l’utilisateur. Ensuite, il l’informe de sa catégorie : • "Poussin" de 6 à 7 ans • "Pupille" de 8 à 9 ans • "Minime" de 10 à 11 ans • "Cadet" à partir 12 ans
+✅
 
-Julien variable age : entier
+---
 
-Début afficher("Entrer votre âge") lire(age)
+## Donne moi ce que tu veux, je te dirais qui tu es!
+
+- Écrire un algorithme qui demande l’âge d’un enfant à l’utilisateur. Ensuite, il l’informe de sa catégorie :
+  - "Poussin" de 6 à 7 ans
+  - "Pupille" de 8 à 9 ans
+  - "Minime" de 10 à 11 ans
+  - "Cadet" à partir 12 ans
+
+```
+Variable age : entier
+
+Début
+    afficher("Entrer votre âge")
+    lire(age)
 
     si age >= 6 ET age <= 7
         alors afficher("Vous êtes POUSSIN")
@@ -118,27 +188,9 @@ Début afficher("Entrer votre âge") lire(age)
     fsi
 
 Fin
+```
 
-Mike variable age : entier debut ecrire("Entrez un age") lire age
-
-    Si (age > 5 ET age < 8)
-        alors ecrire("poussin")
-    Fsi
-
-    Si (age > 7 ET age < 10)
-        alors ecrire("pupille")
-    Fsi
-
-    Si (age > 9 ET age < 12)
-        alors ecrire("pupille")
-    Fsi
-
-    Si (age > 11)
-        alors ecrire("cadet")
-    Fsi
-
-fin
-
+```
 variables age : entier
 
 debut afficher("entre votre age") lire (age)
@@ -153,11 +205,10 @@ debut afficher("entre votre age") lire (age)
             fsi
         fsi
     fsi
-
 fin
+```
 
-variable >= valeur Supérieur ou égal variable <= valeur Inférieur ou égal variable == valeur Strictement égal variable != valeur Différent variable > valeur variable < valeur
-
+```
 Variable age : entier;
 
 debut
@@ -180,7 +231,9 @@ debut
     fsi
 
 fin
+```
 
+```
 variable age : entier
 
 Début afficher("entre votre age") lire (age)
@@ -200,9 +253,11 @@ Début afficher("entre votre age") lire (age)
     fsi
 
 Fin
+```
 
-Écrire un algorithme qui demande la catégorie d’un enfant à l’utilisateur. Ensuite, il l’informe de son âge : • "Poussin" de 6 à 7 ans • "Pupille" de 8 à 9 ans • "Minime" de 10 à 11 ans • "Cadet" à partir 12 ans
+- Écrire un algorithme qui demande la catégorie d’un enfant à l’utilisateur. Ensuite, il l’informe de son âge : • "Poussin" de 6 à 7 ans • "Pupille" de 8 à 9 ans • "Minime" de 10 à 11 ans • "Cadet" à partir 12 ans
 
+```
 variable catégorie : caractères Début afficher("Entrer votre catégorie : ") lire(categorie)
 
     si categorie == "poussin"
@@ -220,7 +275,9 @@ variable catégorie : caractères Début afficher("Entrer votre catégorie : ") 
     fsi
 
 Fin
+```
 
+```
 variable categorie: caractères
 
 début afficher("entrez votre catégorie") lire(categorie)
@@ -234,14 +291,16 @@ début afficher("entrez votre catégorie") lire(categorie)
     fselon
 
 fin
+```
 
-demander à l'utilisateur d'entrer 3 chiffres et vérifier s'il sont classé par ordre croissant ou non.
+## Donne moi ...
 
+- demander à l'utilisateur d'entrer 3 chiffres et vérifier s'il sont classé par ordre croissant ou non.
+
+```
 variable nbre1, nbre2, nbre3 : entiers
 
-Début afficher("Renseigner un chiffre :") lire(nbre1)  
- afficher("Renseigner un chiffre :") lire(nbre2)  
- afficher("Renseigner un chiffre :") lire(nbre3)
+Début afficher("Renseigner un chiffre :") lire(nbre1) afficher("Renseigner un chiffre :") lire(nbre2) afficher("Renseigner un chiffre :") lire(nbre3)
 
     si nbre1 < nbre2 ET nbre2 < nbre3
         alors afficher("chiffres entrés par ordre croissant")
@@ -249,13 +308,17 @@ Début afficher("Renseigner un chiffre :") lire(nbre1)
     fsi
 
 Fin
+```
 
-Exercices
+---
 
-Algorithme > Demander à l'utilisateur d'entrer des chiffres. D'en faire l'addition jusqu'à ce que l'on appuie sur 0. Afficher à la fin le total des additions des chiffres entrés et le nombre de fois que nous avons entré les chiffres.
+## L'addition SVP
+
+- Demander à l'utilisateur d'entrer des chiffres. D'en faire l'addition jusqu'à ce que l'on appuie sur 0. Afficher à la fin le total des additions des chiffres entrés et le nombre de fois que nous avons entré un chiffre.
 
 1 + 2 + 3 + 4 + 5 = 15 5;
 
+```
 variables nombre, nombreOperations, fin, total : entiers nombre ← 0 total ← 0 nombreOperation ← 0 fin ← 0
 
 Début afficher("Entrer un nombre") lire(nombre)
@@ -271,9 +334,9 @@ Début afficher("Entrer un nombre") lire(nombre)
     afficher("J'ai rentré", nombreOperation, " chiffres pour un total de ", total)
 
 Fin
+```
 
-Demander à l'utilisateur d'entrer des chiffres. D'en faire l'addition jusqu'à ce que l'on appuie sur 0. Afficher à la fin le total des additions des chiffres entrés et le nombre de fois que nous avons entré les chiffres.
-
+```
 variables nombre, total, nombreOperations, fin : entiers nombre ← 0 total ← 0 nombreOperation ← 0 fin ← 0
 
 Début
@@ -289,7 +352,9 @@ Début
     3 opérations > 11
 
 Fin
+```
 
+```
 variables compteur, objectif, nombre, total, pas : entiers pas ← 1 objectif ← 5 nombre ← 0 total ← 0
 
 Début
@@ -303,6 +368,7 @@ Début
     afficher("J'ai fait", compteur, " opérations pour un total de ", total)
 
 Fin
+```
 
 While > Tant_Que
 
@@ -319,8 +385,13 @@ For > Pour
 1. Répétion d'un action lorsque le nombre de tour est connu
 2. Lorsque le nombre d'itération est connu
 
-Afficher le plus grand de deux entiers saisis au clavier
+---
 
+## Le plus grand ?
+
+- Afficher le plus grand de deux entiers saisis au clavier
+
+```
 Variables nombre1, nombre2 : entiers
 
 Début afficher("Entrer un nombre : ") lire(nombre1) afficher("Entrer un nombre : ") lire(nombre2)
@@ -331,9 +402,15 @@ Début afficher("Entrer un nombre : ") lire(nombre1) afficher("Entrer un nombre 
     FSI
 
 Fin
+```
 
-Écrire un programme qui demande à l’utilisateur de saisir un caractère et qui affiche « affirmatif » si le caractère est un « o » (minuscule ou majuscule), « négatif » si c’est un « n » (minuscule ou majuscule) et « ? ! ? ! ? ! ? » dans les autres cas.
+---
 
+## Chef oui Chef !!! 💂‍♀️
+
+- Écrire un programme qui demande à l’utilisateur de saisir un caractère et qui affiche « affirmatif » si le caractère est un « o » (minuscule ou majuscule), « négatif » si c’est un « n » (minuscule ou majuscule) et « ? ! ? ! ? ! ? » dans les autres cas.
+
+```
 Variables choix : caractères
 
 Début
@@ -354,6 +431,7 @@ Début
     FSI
 
 FIN
+```
 
 PROCEDURE et FONCTIONS Tous deux on peut y insérer des paramètres
 
@@ -365,21 +443,21 @@ Procedure transformerEnMinuscule(monChiffre : réel) Début
 
 Fin
 
-Ecrire un algorithme qui affiche le nombre total des entiers, entrés par l'utilisateur, qui sont des multiples de 3.
+---
+
+## Un peu de mathématique 😣
+
+- Ecrire un algorithme qui affiche le nombre total des entiers, entrés par l'utilisateur, qui sont des multiples de 3.
 
 For Tant_que Répéter tant que
 
 - Tant que :
 
 ```
-Variables nombre, total, nombreOperation : entiers
-total ← 0
-nombreOperation ← 0
 
-Début
-    afficher("Entrer un nombre")
-    lire(nombre)  12
+Variables nombre, total, nombreOperation : entiers total ← 0 nombreOperation ← 0
 
+Début afficher("Entrer un nombre") lire(nombre) 12
 
     TANT QUE total <= nombre
         Alors total ← total + 3
@@ -387,18 +465,16 @@ Début
     Fin TANT QUE
 
     afficher("Il y a ", nomreOperation, " multiple de 3)
+
 ```
 
 - Répéter ... tant que :
 
 ```
-variable nrbUser , nrbVerif , compteur.
-    compteur ← 0
-    nrbVerif ← 3
 
-Début
-    Afficher("Donner un nombre :")
-    lire(nrbUser)
+variable nrbUser , nrbVerif , compteur. compteur ← 0 nrbVerif ← 3
+
+Début Afficher("Donner un nombre :") lire(nrbUser)
 
     SI nrbUser < 3
         compteur ← 0
@@ -410,17 +486,18 @@ Début
     FSI
 
     afficher(compteur)
+
 Fin
+
 ```
 
 - Pour :
 
 ```
+
 Variables nb, compteur, resultat : entiers
 
-Début
-    afficher("Donner un nombre)
-    lire(nb)
+Début afficher("Donner un nombre) lire(nb)
 
     Pour compteur ← 1 à compteur <= nb pour un pas de 1
         Si compteur % 3 == 0
@@ -431,7 +508,10 @@ Début
     afficher("Dans ce nombre ", nb, " il y a ", resultat, " multiple de 3)
 
 Fin
+
 ```
+
+---
 
 monTableau[0] > 0
 
@@ -460,24 +540,12 @@ Fin
 L'utilisateur doit indiquer combien de nombre il veut saisir puis saisir une suite de nombre dans un tableau. Le tableau doit en suite renvoyer la plus grande valeur de ce tableau en indiquant l'index où il est situé.
 
 ```
-L'utilisateur entre le nombre de chiffre qu'il veut entrer
-Va si wesh entre les nombres
-le premier nombre entré est le plus grand
-puis
-Le nombre entré est comparé avec le nombre le plus grand
-compter le nombre d'itération total pour avoir la position du nombre
 
+L'utilisateur entre le nombre de chiffre qu'il veut entrer Va si wesh entre les nombres le premier nombre entré est le plus grand puis Le nombre entré est comparé avec le nombre le plus grand compter le nombre d'itération total pour avoir la position du nombre
 
+Variable nombre, max, index, compteur, tableau[], tailleTableau : entier compteur ← 0 nombre ← 0 max ← 0 index ← 0
 
-Variable nombre, max, index, compteur, tableau[], tailleTableau : entier
-compteur ← 0
-nombre ← 0
-max ← 0
-index ← 0
-
-Début
-    afficher("Entrer combien de nombre voulez vous entrer")
-    lire(tailleTableau)
+Début afficher("Entrer combien de nombre voulez vous entrer") lire(tailleTableau)
 
     Pour compteur ← 0 à compteur < tailleTableau par pas de 1
         afficher("Entrer le nombre numéro ", compteur+1)
@@ -493,7 +561,59 @@ Début
 
     afficher("La plus grande valeur est : ", max, " et elle est située
     sur la case numéro ", index)
+
 Fin
+
 ```
 
 L'utilisateur doit indiquer combien de nombre il veut saisir puis saisir une suite de nombre dans un tableau. Le tableau doit ensuite échanger la variable Tableau[n] et Tableau[n+1].
+
+```
+
+```
+
+L’algorihme est alors le suivant : Algorithme calculer_max
+
+-- Afficher le plus grand de deux réels saisis au clavier
+
+ALGORITHMIQUE ET PROGRAMMATION 1 Algorithmique et programmation : les bases (Algo) 4 5 Variable 6 x1, x2: Réel -- les deux réels saisis au clavier 7 max: Réel -- le plus grand de x1 et x2 8 9 Début 10 -- Saisir les deux réels 11 Lire(x1, x2) 12 13 -- Déterminer le maximum 14 Si x1 > x2 Alors 15 max <- x1 16 Sinon 17 max <- x2 18 FinSi 19 20 -- Afficher le maximum 21 Écrire(max) 22 Fin
+
+Exercice 13 : Réponse Écrire un programme qui demande à l’utilisateur de saisir un caractère et qui affiche « affirmatif » si le caractère est un « o » (minuscule ou majuscule), « négatif » si c’est un « n » (minuscule ou majuscule) et « ? ! ? ! ? ! ? » dans les autres cas. Solution : 1 Algorithme repondre 2 3 -- Répondre par « affirmatif », « négatif » ou « ?!?!?!? ». 4 5 Variable 6 reponse: Charactere -- caractère lu au clavier 7 8 Début 9 -- saisir le caractère 10 Écrire("Votre réponse (o/n) : ") 11 Lire(reponse) 12 13 -- afficher la réponse 14 Selon reponse Dans 15 ’o’, ’O’: { réponse positive } 16 Écrireln("Affirmatif !") 17 18 ’n’, ’N’: { réponse négative } 19 Écrireln("Négatif !") 20 21 Sinon
+
+REcap Boucle Ecrire un algorithme qui affiche le nombre total des entiers qui sont des multiples de 3. Ce total doit être inférieur au nombre entrer par l'utilisateur Debut Ecrire ("entrer un entier :"); Lire (n); 10 M <- 0; nb <- 0; Tant que (M < n) faire si (n modulo M = 0 ) alors nb <- nb +1; fin si; M <- M + 1; Fin tant que
+
+3
+
+1
+
+Début Ecrire ("entrer un entier :"); Lire (n); Tant que
+
+La suite de Fibonacci est une suite de nombres qui commence par 1 et 1 et dont les termes suivants s'obtiennent l'un après l'autre en ajoutant les deux précédents. Ainsi on a vu que les deux premiers termes étaient 1 et 1, le suivant est donc 1+1=2, celui d'après 2+1=3 et ainsi de suite. 1/ Vérifier que les 7 premiers termes de la suite de Fibonacci sont 1, 1, 2, 3, 5, 8, et 13. 2/ Ecrire un algorithme qui calcule les 100 premiers termes de la suite de Fibonacci.
+
+Fonction boucle et Algo de fibonnacii
+
+function Fibonacci(n) { var w; if(n <= 0) return 0; if(n == 1) return 1; var u = 0; var v = 1; for(var i=2; i <= n; i++) { w = u+v; u = v; v = w; }; return v; }
+
+for(var I=0;I<=10;I++) { document.write("Fibonacci("+I+")="+Fibonacci(I)+"<BR>"); }
+
+```
+
+Variables Nb, Posmaxi en Numérique Tableau T() en Numérique
+
+Début Ecrire "Entrez le nombre de valeurs :" Lire Nb
+
+Pour i ← 0 à Nb Ecrire "Entrez le nombre n° ", i + 1 Lire T(i) i Suivant Posmaxi ← 0 Pour i ← 0 à Nb - 1 Si T(i) > T(Posmaxi) alors Posmaxi ← i Finsi i Suivant Ecrire "Element le plus grand : ", T(Posmaxi) Ecrire "Position de cet élément : ", Posmaxi Fin
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
