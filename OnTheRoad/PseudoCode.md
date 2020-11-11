@@ -64,15 +64,15 @@ Liste des principaux mots clés du langage :
 
 ### Les symboles spéciaux
 
-Un certain nombre de caractères et de combinaisons de caractères ont une signification spéciale pour le langage algorithmique. En voici la liste :
+Voici la liste des caractères spéciaux utilisés en Pseudo-Code :
 
-← ^ . , : { } [ ] <= >= <> = + – \* / ()
+← ^ . , : { } [ ] <= >= <> = + – \* / ()`
 
 ### Les commentaires
 
-Il est vivement conseillé d’insérer des commentaires dans son algorithme. Les commentaires ne font pas partie de l’algorithme et n’influent pas sur le déroulement de celui-ci, si ce n’est pour sa compréhension ! Les blocs de commentaires seront délimités par les caractères // :
+Pour aider à la compréhension, il faut ajouter des commentaires. Les blocs de commentaires seront délimités par les caractères // :
 
-// un commentaire 1 // un commentaire
+`// un commentaire`
 
 ---
 

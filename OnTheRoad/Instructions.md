@@ -18,7 +18,7 @@ Une expression peut être :
     - Opposé $-x$
     - Valeur Absolue $|x|$
     - Carré $x^2$
-- Opérateur Logique (ce que nos appelons <span style="color:blue">`Expression Booléenne`</span>)
+- Opérateur Logique (ce que nos appelons <span style="color:#D7BA7D">Expression Booléenne</span>)
 
 ### Les opérateurs :
 
@@ -128,7 +128,7 @@ maVariable ← <expression>
 
 ## Les appels aux fonctions et procédures
 
-Qu'est ce qu'une procédure et une fonction ? Aussi appelées **`routine`** (un bloc de code), elles prennent une liste d'arguments en paramètre (entre parenthèses) et se définissent par :
+Qu'est ce qu'une procédure et une fonction ? Aussi appelées <span style="color:#D7BA7D">**routine**</span> (un bloc de code), elles prennent une liste d'arguments en paramètre (entre parenthèses) et se définissent par :
 
 - Procédure : Instruction qui ne renvoi pas de valeur (ex : Une structure de comparaison)
 - Fonction : Instruction qui a contrario renvoi une valeur
@@ -181,7 +181,7 @@ variable ← fonction(param1, param2, ...)
 
 # Boucles et Conditions
 
-[comment]: # 'CONDITIONS'
+[comment]: #'CONDITIONS'
 
 ## Structure Alternative et de choix
 
@@ -253,7 +253,7 @@ SELON abrevation
     AUTREMENT: afficher("Monsieur, Madame")
 ```
 
-[comment]: # 'BOUCLES'
+[comment]: #'BOUCLES'
 
 ## Structures de répétition
 
@@ -449,6 +449,3 @@ Fin
 ---
 
 # Prêt pour la prochaine partie ? 😉 [C'est par ici](./Functions.md)
-
-$$
-$$
