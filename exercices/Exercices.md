@@ -164,6 +164,7 @@ Fin
   - "Minime" de 10 à 11 ans
   - "Cadet" à partir 12 ans
 
+❌
 ```
 Variable age : entier
 
@@ -189,7 +190,9 @@ Début
 
 Fin
 ```
+** OPTIMISATION :** Cet algorithme va forcément traiter toutes les conditions **SI**, ce qui induira un temps de traitement plus long. ❌
 
+❌
 ```
 variables age : entier
 
@@ -207,6 +210,9 @@ debut afficher("entre votre age") lire (age)
     fsi
 fin
 ```
+** OPTIMISATION :** Cet algorithme va forcément traiter toutes les conditions **SI**, ce qui induira un temps de traitement plus long. ❌
+
+❌
 
 ```
 Variable age : entier;
@@ -218,20 +224,21 @@ debut
 
     si age >= 12
         alors ecrire ("Cadet")
-        fsi
         sinon si 10 <= age <= 11
             alors ecrire ("Minime")
-            fsi
             sinon si 8 <= age  <= 9
                 alors ecrire ("Pupille")
-                fsi
                 sinon si 6 <= age  <= 7
                     alors ecrire ("Poussin")
                 fsi
+            fsi
+        fsi
     fsi
-
 fin
 ```
+** OPTIMISATION :** Cet algorithme va forcément traiter toutes les conditions **SI**, ce qui induira un temps de traitement plus long. ❌
+
+✅ ** OPTIMISE**
 
 ```
 variable age : entier
@@ -251,12 +258,16 @@ Début afficher("entre votre age") lire (age)
             fsi
         fsi
     fsi
-
 Fin
 ```
+✅ 
+
+
 
 - Écrire un algorithme qui demande la catégorie d’un enfant à l’utilisateur. Ensuite, il l’informe de son âge : • "Poussin" de 6 à 7 ans • "Pupille" de 8 à 9 ans • "Minime" de 10 à 11 ans • "Cadet" à partir 12 ans
 
+
+✅ 
 ```
 variable catégorie : caractères Début afficher("Entrer votre catégorie : ") lire(categorie)
 
@@ -292,15 +303,24 @@ début afficher("entrez votre catégorie") lire(categorie)
 
 fin
 ```
+✅ 
+
+
 
 ## Donne moi ...
 
 - demander à l'utilisateur d'entrer 3 chiffres et vérifier s'il sont classé par ordre croissant ou non.
 
 ```
-variable nbre1, nbre2, nbre3 : entiers
+Variable nbre1, nbre2, nbre3 : entiers
 
-Début afficher("Renseigner un chiffre :") lire(nbre1) afficher("Renseigner un chiffre :") lire(nbre2) afficher("Renseigner un chiffre :") lire(nbre3)
+Début 
+    afficher("Renseigner un chiffre :") 
+    lire(nbre1) 
+    afficher("Renseigner un chiffre :") 
+    lire(nbre2) 
+    afficher("Renseigner un chiffre :") 
+    lire(nbre3)
 
     si nbre1 < nbre2 ET nbre2 < nbre3
         alors afficher("chiffres entrés par ordre croissant")
@@ -316,14 +336,16 @@ Fin
 
 - Demander à l'utilisateur d'entrer des chiffres. D'en faire l'addition jusqu'à ce que l'on appuie sur 0. Afficher à la fin le total des additions des chiffres entrés et le nombre de fois que nous avons entré un chiffre.
 
-1 + 2 + 3 + 4 + 5 = 15 5;
-
 ```
-variables nombre, nombreOperations, fin, total : entiers nombre ← 0 total ← 0 nombreOperation ← 0 fin ← 0
+Variables nombre, nombreOperations, fin, total : entiers 
+nombre ← 0 
+total ← 0 
+nombreOperation ← 0 
+fin ← 0
 
 Début afficher("Entrer un nombre") lire(nombre)
 
-    tant que nombre != fin faire
+    Tant Que nombre != fin faire
         total ← total + nombre
         nombreOperations ← nombreOperation + 1
 
@@ -343,9 +365,9 @@ Début
 
     Répéter
         afficher("Entrer un nombre")
-        lire(nombre) 5   6  0
-        total ← total + nombre   0 + 5 + 6 + 0
-        nombreOperation ← nombreOperation + 1    0 + 1 + 1 + 1
+        lire(nombre)
+        total ← total + nombre 
+        nombreOperation ← nombreOperation + 1 
     tant que nombre != fin
 
     afficher("J'ai rentré", nombreOperation, " chiffres pour un total de ", total)
@@ -513,39 +535,63 @@ Fin
 
 ---
 
-monTableau[0] > 0
 
-Variable monTableau[] : entiers variable compteur : entiers
+## Les Tableaux
 
-Pour compteur ← 0 à compteur < 10 de pas de 1 monTableau[compteur] ← compteur FPOUR
+- Ecrire un algortihme qui rempli un tableau avec les valeurs d'un compteur
+```
+Variable monTableau[] : entiers 
+Variable compteur : entiers
 
-Comment écrire un algo qui me donne la somme des valeurs de mon tableau. Mon tableau contient N entiers
-
-Variable total, cmopteur : entier Variable tableau[N] : entier
-
-Début Pour compteur ← 0 à compteur < N de pas de 1 total ← total + tableau[compteur] FPOUR
-
-    afficher(total)
-
+Début
+    Pour compteur ← 0 à compteur < 10 de pas de 1 
+        monTableau[compteur] ← compteur 
+    FPOUR
 Fin
-
-Variable total, compteur : entier Variable tableau1[N], tableau2[N]: entier variable tableau3[] : entier
-
-Début Pour compteur ← 5 à compteur < N par pas de 1 tableau3[compteur] ← tableau1[compteur] + tableau2[compteur] Fpour
-
-    afficher(tableau3[0])
-
-Fin
-
-L'utilisateur doit indiquer combien de nombre il veut saisir puis saisir une suite de nombre dans un tableau. Le tableau doit en suite renvoyer la plus grande valeur de ce tableau en indiquant l'index où il est situé.
-
 ```
 
-L'utilisateur entre le nombre de chiffre qu'il veut entrer Va si wesh entre les nombres le premier nombre entré est le plus grand puis Le nombre entré est comparé avec le nombre le plus grand compter le nombre d'itération total pour avoir la position du nombre
+- Ecrire un algo qui me donne la somme des valeurs de mon tableau. Mon tableau contient N entiers
 
-Variable nombre, max, index, compteur, tableau[], tailleTableau : entier compteur ← 0 nombre ← 0 max ← 0 index ← 0
+```
+Variable total, cmopteur : entier 
+Variable tableau[N] : entier
 
-Début afficher("Entrer combien de nombre voulez vous entrer") lire(tailleTableau)
+Début 
+    Pour compteur ← 0 à compteur < N de pas de 1 
+        total ← total + tableau[compteur] 
+    FPOUR
+
+    afficher(total)
+Fin
+```
+
+- Ecrire un algo qui fait la sommes des valeurs de chaque cases des tableaux 1 et 2 et mets le résultat dans la case correspondante du tableau 3. Mon tableau contient N entiers.
+
+```
+Variable total, compteur : entier 
+Variable tableau1[N], tableau2[N]: entier 
+Variable tableau3[] : entier
+
+Début Pour compteur ← 5 à compteur < N par pas de 1 
+    tableau3[compteur] ← tableau1[compteur] + tableau2[compteur] 
+Fpour
+
+    afficher(tableau3[0])
+Fin
+```
+
+- L'utilisateur doit indiquer combien de nombre il veut saisir puis saisir une suite de nombre dans un tableau. Le tableau doit en suite renvoyer la plus grande valeur de ce tableau en indiquant l'index où il est situé.
+
+```
+Variable nombre, max, index, compteur, tableau[], tailleTableau : entier 
+compteur ← 0 
+nombre ← 0 
+max ← 0 
+index ← 0
+
+Début 
+    afficher("Entrer combien de nombre voulez vous entrer") 
+    lire(tailleTableau)
 
     Pour compteur ← 0 à compteur < tailleTableau par pas de 1
         afficher("Entrer le nombre numéro ", compteur+1)
@@ -563,57 +609,14 @@ Début afficher("Entrer combien de nombre voulez vous entrer") lire(tailleTablea
     sur la case numéro ", index)
 
 Fin
-
 ```
 
-L'utilisateur doit indiquer combien de nombre il veut saisir puis saisir une suite de nombre dans un tableau. Le tableau doit ensuite échanger la variable Tableau[n] et Tableau[n+1].
-
-```
-
-```
-
-L’algorihme est alors le suivant : Algorithme calculer_max
-
--- Afficher le plus grand de deux réels saisis au clavier
-
-ALGORITHMIQUE ET PROGRAMMATION 1 Algorithmique et programmation : les bases (Algo) 4 5 Variable 6 x1, x2: Réel -- les deux réels saisis au clavier 7 max: Réel -- le plus grand de x1 et x2 8 9 Début 10 -- Saisir les deux réels 11 Lire(x1, x2) 12 13 -- Déterminer le maximum 14 Si x1 > x2 Alors 15 max <- x1 16 Sinon 17 max <- x2 18 FinSi 19 20 -- Afficher le maximum 21 Écrire(max) 22 Fin
-
-Exercice 13 : Réponse Écrire un programme qui demande à l’utilisateur de saisir un caractère et qui affiche « affirmatif » si le caractère est un « o » (minuscule ou majuscule), « négatif » si c’est un « n » (minuscule ou majuscule) et « ? ! ? ! ? ! ? » dans les autres cas. Solution : 1 Algorithme repondre 2 3 -- Répondre par « affirmatif », « négatif » ou « ?!?!?!? ». 4 5 Variable 6 reponse: Charactere -- caractère lu au clavier 7 8 Début 9 -- saisir le caractère 10 Écrire("Votre réponse (o/n) : ") 11 Lire(reponse) 12 13 -- afficher la réponse 14 Selon reponse Dans 15 ’o’, ’O’: { réponse positive } 16 Écrireln("Affirmatif !") 17 18 ’n’, ’N’: { réponse négative } 19 Écrireln("Négatif !") 20 21 Sinon
-
-REcap Boucle Ecrire un algorithme qui affiche le nombre total des entiers qui sont des multiples de 3. Ce total doit être inférieur au nombre entrer par l'utilisateur Debut Ecrire ("entrer un entier :"); Lire (n); 10 M <- 0; nb <- 0; Tant que (M < n) faire si (n modulo M = 0 ) alors nb <- nb +1; fin si; M <- M + 1; Fin tant que
-
-3
-
-1
-
-Début Ecrire ("entrer un entier :"); Lire (n); Tant que
-
-La suite de Fibonacci est une suite de nombres qui commence par 1 et 1 et dont les termes suivants s'obtiennent l'un après l'autre en ajoutant les deux précédents. Ainsi on a vu que les deux premiers termes étaient 1 et 1, le suivant est donc 1+1=2, celui d'après 2+1=3 et ainsi de suite. 1/ Vérifier que les 7 premiers termes de la suite de Fibonacci sont 1, 1, 2, 3, 5, 8, et 13. 2/ Ecrire un algorithme qui calcule les 100 premiers termes de la suite de Fibonacci.
-
-Fonction boucle et Algo de fibonnacii
-
-function Fibonacci(n) { var w; if(n <= 0) return 0; if(n == 1) return 1; var u = 0; var v = 1; for(var i=2; i <= n; i++) { w = u+v; u = v; v = w; }; return v; }
-
-for(var I=0;I<=10;I++) { document.write("Fibonacci("+I+")="+Fibonacci(I)+"<BR>"); }
-
-```
-
-Variables Nb, Posmaxi en Numérique Tableau T() en Numérique
-
-Début Ecrire "Entrez le nombre de valeurs :" Lire Nb
-
-Pour i ← 0 à Nb Ecrire "Entrez le nombre n° ", i + 1 Lire T(i) i Suivant Posmaxi ← 0 Pour i ← 0 à Nb - 1 Si T(i) > T(Posmaxi) alors Posmaxi ← i Finsi i Suivant Ecrire "Element le plus grand : ", T(Posmaxi) Ecrire "Position de cet élément : ", Posmaxi Fin
+- L'utilisateur doit indiquer combien de nombre il veut saisir puis saisir une suite de nombre dans un tableau. Le tableau doit ensuite échanger la variable Tableau[n] et Tableau[n+1].
 
 ```
 
 ```
 
-```
 
-```
 
-```
 
-```
-
-```
