@@ -165,6 +165,7 @@ Fin
   - "Cadet" à partir 12 ans
 
 ❌
+
 ```
 Variable age : entier
 
@@ -190,9 +191,11 @@ Début
 
 Fin
 ```
+
 ** OPTIMISATION :** Cet algorithme va forcément traiter toutes les conditions **SI**, ce qui induira un temps de traitement plus long. ❌
 
 ❌
+
 ```
 variables age : entier
 
@@ -210,6 +213,7 @@ debut afficher("entre votre age") lire (age)
     fsi
 fin
 ```
+
 ** OPTIMISATION :** Cet algorithme va forcément traiter toutes les conditions **SI**, ce qui induira un temps de traitement plus long. ❌
 
 ❌
@@ -236,6 +240,7 @@ debut
     fsi
 fin
 ```
+
 ** OPTIMISATION :** Cet algorithme va forcément traiter toutes les conditions **SI**, ce qui induira un temps de traitement plus long. ❌
 
 ✅ ** OPTIMISE**
@@ -260,14 +265,13 @@ Début afficher("entre votre age") lire (age)
     fsi
 Fin
 ```
-✅ 
 
-
+✅
 
 - Écrire un algorithme qui demande la catégorie d’un enfant à l’utilisateur. Ensuite, il l’informe de son âge : • "Poussin" de 6 à 7 ans • "Pupille" de 8 à 9 ans • "Minime" de 10 à 11 ans • "Cadet" à partir 12 ans
 
+✅
 
-✅ 
 ```
 variable catégorie : caractères Début afficher("Entrer votre catégorie : ") lire(categorie)
 
@@ -303,9 +307,8 @@ début afficher("entrez votre catégorie") lire(categorie)
 
 fin
 ```
-✅ 
 
-
+✅
 
 ## Donne moi ...
 
@@ -314,12 +317,12 @@ fin
 ```
 Variable nbre1, nbre2, nbre3 : entiers
 
-Début 
-    afficher("Renseigner un chiffre :") 
-    lire(nbre1) 
-    afficher("Renseigner un chiffre :") 
-    lire(nbre2) 
-    afficher("Renseigner un chiffre :") 
+Début
+    afficher("Renseigner un chiffre :")
+    lire(nbre1)
+    afficher("Renseigner un chiffre :")
+    lire(nbre2)
+    afficher("Renseigner un chiffre :")
     lire(nbre3)
 
     si nbre1 < nbre2 ET nbre2 < nbre3
@@ -337,10 +340,10 @@ Fin
 - Demander à l'utilisateur d'entrer des chiffres. D'en faire l'addition jusqu'à ce que l'on appuie sur 0. Afficher à la fin le total des additions des chiffres entrés et le nombre de fois que nous avons entré un chiffre.
 
 ```
-Variables nombre, nombreOperations, fin, total : entiers 
-nombre ← 0 
-total ← 0 
-nombreOperation ← 0 
+Variables nombre, nombreOperations, fin, total : entiers
+nombre ← 0
+total ← 0
+nombreOperation ← 0
 fin ← 0
 
 Début afficher("Entrer un nombre") lire(nombre)
@@ -366,8 +369,8 @@ Début
     Répéter
         afficher("Entrer un nombre")
         lire(nombre)
-        total ← total + nombre 
-        nombreOperation ← nombreOperation + 1 
+        total ← total + nombre
+        nombreOperation ← nombreOperation + 1
     tant que nombre != fin
 
     afficher("J'ai rentré", nombreOperation, " chiffres pour un total de ", total)
@@ -535,17 +538,17 @@ Fin
 
 ---
 
-
 ## Les Tableaux
 
 - Ecrire un algortihme qui rempli un tableau avec les valeurs d'un compteur
+
 ```
-Variable monTableau[] : entiers 
+Variable monTableau[] : entiers
 Variable compteur : entiers
 
 Début
-    Pour compteur ← 0 à compteur < 10 de pas de 1 
-        monTableau[compteur] ← compteur 
+    Pour compteur ← 0 à compteur < 10 de pas de 1
+        monTableau[compteur] ← compteur
     FPOUR
 Fin
 ```
@@ -553,12 +556,12 @@ Fin
 - Ecrire un algo qui me donne la somme des valeurs de mon tableau. Mon tableau contient N entiers
 
 ```
-Variable total, cmopteur : entier 
+Variable total, cmopteur : entier
 Variable tableau[N] : entier
 
-Début 
-    Pour compteur ← 0 à compteur < N de pas de 1 
-        total ← total + tableau[compteur] 
+Début
+    Pour compteur ← 0 à compteur < N de pas de 1
+        total ← total + tableau[compteur]
     FPOUR
 
     afficher(total)
@@ -568,12 +571,12 @@ Fin
 - Ecrire un algo qui fait la sommes des valeurs de chaque cases des tableaux 1 et 2 et mets le résultat dans la case correspondante du tableau 3. Mon tableau contient N entiers.
 
 ```
-Variable total, compteur : entier 
-Variable tableau1[N], tableau2[N]: entier 
+Variable total, compteur : entier
+Variable tableau1[N], tableau2[N]: entier
 Variable tableau3[] : entier
 
-Début Pour compteur ← 5 à compteur < N par pas de 1 
-    tableau3[compteur] ← tableau1[compteur] + tableau2[compteur] 
+Début Pour compteur ← 5 à compteur < N par pas de 1
+    tableau3[compteur] ← tableau1[compteur] + tableau2[compteur]
 Fpour
 
     afficher(tableau3[0])
@@ -583,14 +586,14 @@ Fin
 - L'utilisateur doit indiquer combien de nombre il veut saisir puis saisir une suite de nombre dans un tableau. Le tableau doit en suite renvoyer la plus grande valeur de ce tableau en indiquant l'index où il est situé.
 
 ```
-Variable nombre, max, index, compteur, tableau[], tailleTableau : entier 
-compteur ← 0 
-nombre ← 0 
-max ← 0 
+Variable nombre, max, index, compteur, tableau[], tailleTableau : entier
+compteur ← 0
+nombre ← 0
+max ← 0
 index ← 0
 
-Début 
-    afficher("Entrer combien de nombre voulez vous entrer") 
+Début
+    afficher("Entrer combien de nombre voulez vous entrer")
     lire(tailleTableau)
 
     Pour compteur ← 0 à compteur < tailleTableau par pas de 1
@@ -614,9 +617,172 @@ Fin
 - L'utilisateur doit indiquer combien de nombre il veut saisir puis saisir une suite de nombre dans un tableau. Le tableau doit ensuite échanger la variable Tableau[n] et Tableau[n+1].
 
 ```
+Entrer le nombre de saisie que vous voulez pour la taille du tableau
+saisir un nombre
 
+Entrer autant de nombre que la taille du tableau
+
+échanger la valeur de la case 1 et la case suivante
+tableau[n] et tableau[n+1]
+Répter pour chaque valeur jusqu'à la fin du tableau
 ```
 
+```PikaPika
+
+Variable nombre, compteur, temporaire, tableau[], tailleTableau : entier
+compteur ← 0
+nombre ← 0
+temporaire ← 0
+
+Début
+    afficher("Entrer combien de nombre voulez vous entrer")
+    lire(tailleTableau)
+
+    Pour compteur ← 0 à compteur < tailleTableau par pas de 1
+        afficher("Entrer le nombre numéro ", compteur+1)
+        lire(tableau[compteur])
+    FPour
+
+    max ← compteur
+    listeNombres[max+1] ← listeNombres[0]
+    Pour compteur ← 0 à compteur < tailleListe
+        listeNombres[compteur] ← listeNombres[compteur+1]
+        listeNombres[max]← listeNombres[max+1]
+    Fpour
+    Afficher("Toutes les valeurs de la liste on été décalé d'un rang")
+Fin
+```
+
+```Maïte 1
+Variable nombre, stock, index, compteur, tableau[], tailleTableau : entier
+compteur ← 0
+nombre ← 0
+stock← 0
+index ← 0
 
 
+Début
+    afficher("Entrer combien de nombre voulez vous entrer")
+    lire(tailleTableau)
 
+    Pour compteur ← 0 à compteur < tailleTableau par pas de 1
+        afficher("Entrer un nombre ")
+        lire(tableau[compteur])
+    FPour
+    stock←tableau[0]
+    Pour compteur ← 0 à compteur < (tailleTableau-1) par pas de 1
+
+        tableau[compteur]←tableau[compteur+1];
+
+
+     Fpour
+    tableau[tailleTableau-1] ← stock
+
+
+Fin
+```
+
+- En prenant en compte la dernière case du tableau
+- on sauvegarde la première case du tableau
+- On parcours le tableau de 0 à la taille du tableau
+- une fois fini, on place la première case du tableau à la dernière
+
+```Maïte 2
+Variable nombre, stock, index, compteur, tableau[], tailleTableau : entier compteur ← 0 nombre ← 0 stock← 0 index ← 0
+
+Début afficher("Entrer combien de nombre voulez vous entrer") lire(tailleTableau)
+
+    Pour compteur ← 0 à compteur < tailleTableau par pas de 1
+        afficher("Entrer un nombre ")
+        lire(tableau[compteur])
+    FPour
+
+    Pour compteur ← 0 à compteur < (tailleTableau) par pas de 1
+        stock2←tableau[compteur]
+        tableau[compteur]←tableau[compteur+1];
+        tableau[compteur +1]←stock2;
+
+    Fpour
+
+    stock2←tableau[tailleTableau-1]
+        tableau[tailleTableau-1]←tableau[0];
+        tableau[0]←stock2;
+
+Fin
+```
+
+- En prenant en compte la dernière case du tableau
+- On parcours le tableau de 0 à la taille du tableau - 1
+
+```Jeremy
+variables : declare, tableau[], compteur, nb, val1 : Entier
+
+debut
+
+afficher("Combien de chiffre allez vous déclarer ?")
+lire(declare)
+compteur ← 0
+
+pour compteur à declare avec pas de 1
+    afficher("Donnez un chiffre")
+    lire(nb)
+    tableau[compteur] ← nb
+fpour
+
+compteur ← 0
+val1 ← tableau[0]
+
+pour compteur à declare avec pas de 1
+    si compteur != declare - 1
+        alors tableau[compteur] ← tableau[compteur + 1]
+        sinon
+        alors tableau[compteur] ← val1
+        fsi
+    fsi
+fpour
+
+afficher("Voilà vos valeurs décalées de un : ",tableau[])
+```
+
+- En prenant en compte la dernière case du tableau
+- On parcours le tableau de 0 à la taille du tableau - 1
+
+```Denis
+Variable nombre, stock, index, compteur, tableau[], tailleTableau : entier compteur ← 0 nombre ← 0 stock← 0 index ← 0
+
+Début afficher("Entrer combien de nombre voulez vous entrer") lire(tailleTableau)
+
+    Pour compteur ← 0 à compteur < tailleTableau par pas de 1
+        afficher("Entrer un nombre ")
+        lire(tableau[compteur])
+    FPour
+
+    Pour compteur ← 0 à compteur < (tailleTableau - 1) par pas de 1
+        stock2←tableau[compteur]
+        tableau[compteur]←tableau[compteur+1];
+        tableau[compteur +1]←stock2;
+    Fpour
+Fin
+```
+
+    - Sans prise en compte de la dernière case du tableau
+
+```
+Début
+    afficher("Entrer combien de nombre voulez vous entrer")
+    lire(tailleTableau)
+
+    Pour compteur ← 0 à compteur < tailleTableau par pas de 1
+        afficher("Entrer le nombre numéro ", compteur+1)
+        lire(tableau[compteur])
+    FPour
+
+    Pour compteur ← 0 à compteur < tailleTableau par pas de 1
+        temporaire ← tableau[compteur]
+        tableau[compteur] ← tableau[compteur+1]
+        tableau[compteur+1] ← temporaire
+    FPour
+
+    Afficher("Toutes les valeurs de la liste on été décalé d'un rang")
+Fin
+```
