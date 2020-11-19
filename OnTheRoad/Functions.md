@@ -62,3 +62,5 @@ La portée d’un identifiant est la partie de l’algorithme dans laquelle cet 
 Un identifiant sera « visible » dans l’algorithme où il a été déclaré et dans tout sous algorithme appelé, mais jamais à un niveau plus haut.
 
 ---
+
+# Prêt pour la prochaine partie ? 😉 [C'est par ici](./.md)

@@ -889,3 +889,17 @@ Début
 
 Fin
 ```
+
+
+- Sur le même principe que tous les exercices précédents, écrire un algorithme, avec plusieurs fonctions ou procédures, permettant :
+  - de remplir un tableau avec les notes d'une classe
+  - de le classer par ordre croissant (avec ce que nous avons vu, en comparant le chiffre le plus grand ou le plus petit)
+  - de renvoyer la note la plus haute et la plus basse.
+  - **À faire par les plus balèses d'entre vous 🙄**
+    - de renvoyer la moyenne de la classe
+    - de renvoyer la médianne de la classe
+    - de renvoyer son écart-type
+
+/!\ ⚠ Si et seulement si vous avez des diffcultés à se rappeler ce qu'est la médianne et l'écart-Type, Voici deux liens :
+    - [Médianne](https://fr.khanacademy.org/math/be-2eme-secondaire2/x291d358f50a246d9:traitement-de-donnees-1/x291d358f50a246d9:determiner-un-effectif-un-mode-une-frequence-la-moyenne-arithmetique-letendue-dun-ensemble-de-donnees-discretes/a/mean-median-and-mode-review#:~:text=Pour%20calculer%20la%20m%C3%A9diane%20%3A,des%20deux%20valeurs%20du%20milieu.)
+    - [Écart-Type](https://fr.khanacademy.org/math/be-4eme-secondaire2/x213a6fc6f6c9e122:statistiques-1/x213a6fc6f6c9e122:variance-et-ecart-type/a/calculating-standard-deviation-step-by-step)
