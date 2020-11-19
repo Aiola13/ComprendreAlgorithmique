@@ -74,5 +74,5 @@
 - L'utilisateur doit indiquer combien de nombre il veut saisir puis saisir une suite de nombre dans un tableau. Le tableau doit ensuite échanger la variable Tableau[n] et Tableau[n+1].
 
 - Ecrire un algo qui nous retourne l'entier le plus grand et l'entier le plus petit.
--
-- Modifier l'algo précédent pour mettre l'entier le plus grand au dernier indice du tableau, et l'entier le plus petit au premier indice du tableau.
+
+- Modifier l'algo précédent pour mettre l'entier le plus grand au dernier indice du tableau, et l'entier le plus petit au premier indice du tableau. (il faut bien sur échanger les valeurs)

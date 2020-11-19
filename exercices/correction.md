@@ -786,3 +786,106 @@ Début
     Afficher("Toutes les valeurs de la liste on été décalé d'un rang")
 Fin
 ```
+
+- Ecrire un algo qui nous retourne l'entier le plus grand et l'entier le plus petit.
+
+```
+
+
+
+```
+
+- Modifier l'algo précédent pour mettre l'entier le plus grand au dernier indice du tableau, et l'entier le plus petit au premier indice du tableau. (il faut bien sur échanger les valeurs)
+
+```
+Variable nombre, valeurMax,valeurMin, compteur, tableau[], tailleTableau : entier
+compteur ← 0
+nombre ← 0
+swap ← 0
+indexMax ← 0
+indexMin ← 0
+
+Début
+    afficher("Entrer combien de nombre voulez vous entrer")
+    lire(tailleTableau)
+
+    Pour compteur ← 0 à compteur < tailleTableau par pas de 1
+        afficher("Entrer un nombre ")
+        lire(tableau[compteur])
+    FPour
+
+    valeurMax←tableau[0]
+    valeurMin←tableau[0]
+
+    Pour compteur ← 0 à compteur < tailleTableau par pas de 1
+        SI tableau[compteur] > valeurMax alors
+            valeurMax ← tableau[compteur]
+            indexMax ← compteur
+                SINON SI tableau[compteur] < valeurMin alors
+                    valeurMin ← tableau[compteur]
+                    indexMin ← compteur
+                FSI
+        FSI
+    Fpour
+
+    swap ← [tailleTableau - 1]
+    tableau[tailleTableau - 1] ← valeurMax
+    tableau[indexMax] ← swap
+
+    swap ← tableau[0]
+    tableau[0] ← valeurMin
+    tableau[indexMin] ← swap
+
+Fin
+```
+
+```
+Variable nombre, valeurMax, valeurMin, stock, compteur, tableau[], tailleTableau : entier
+compteur ← 0
+nombre ← 0
+stock ← 0
+indexMax ← 0
+indexMin ← 0
+tmax ← 0
+tmin ← 0
+
+Début
+    afficher("Entrer combien de nombre voulez vous entrer")
+    lire(tailleTableau)
+
+    Pour compteur ← 0 à compteur < tailleTableau par pas de 1
+        afficher("Entrer un nombre ")
+        lire(tableau[compteur])
+    FPour
+
+
+    valeurMax ← tableau[0]
+    valeurmin ← tableau[0]
+
+    POUR compteur ← 0 à compteur < tailleTableau par pas de 1
+        SI tableau[compteur] >= valeurMax alors
+            valeurMax ← tableau[compteur]
+            indexMax ← compteur
+                Sinon Si tableau[compteur] <= valeurMin alors
+                    valeurMin ← tableau[compteur]
+                    indexMin ← compteur
+                FSI
+        FSI
+    FPOUR
+
+    Si tableau[tailleTableau - 1 ] != valeurMax alors
+        stock ← valeurMax
+        valeurMax ← tableau[tailleTableau - 1]
+        tableau[tailleTableau - 1] ← tmax
+        tableau[indexMax] ← valeurMax
+    FSI
+
+    Si tableau[0] != valeurMin alors
+        stock ← valeurMin
+        valeurMin ← tableau[0]
+        tableau[0] ← tMin
+        tableau[indexMin] ← valeurMin
+    FSI
+
+Fin
+```
