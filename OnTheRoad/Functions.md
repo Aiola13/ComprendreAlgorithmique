@@ -44,7 +44,7 @@ Pseudo-Code
 ```
 FONCTION fonction(<liste des paramètres>) : type_retourné
        [<déclarations locales>]
-  DEBUT>
+  DEBUT
        <instruction>
 	...
   RETOURNE <résultat>
@@ -61,6 +61,40 @@ La portée d’un identifiant est la partie de l’algorithme dans laquelle cet 
 
 Un identifiant sera « visible » dans l’algorithme où il a été déclaré et dans tout sous algorithme appelé, mais jamais à un niveau plus haut.
 
+
+# Un petit bonnus ? 🙄  La récursivité
+
+Qu'est-ce que la récursivité ?
+
+Selon [Wikipedia](https://www.wikiwand.com/fr/R%C3%A9cursivit%C3%A9), c'est une démarche qui fait référence à l'objet même.
+
+Un petit exemple ? 
+Une suite arithmétique est défini par :
+- Un premier terme $u_0$ ou $u_p$
+- la formule suivante : $Un + 1 = Un + r$ où $r$ représente la raison de la suite
+
+En mathématique, la sommes des suites arithmétiques, sont des formules récursives.
+$S_n = (n + 1) * (U_0 + U_n) / 2$
+
+
+Mais en pseudo-code, une fonctionne récursive donne quoi ? 
+
+un exemple avec une somme d'une suite r:
+```
+FONCTION somme(n, r: entier) : entier
+  DEBUT
+    RETOURNE sn(n - 1) + r
+  FIN
+```
+A noter qu'à ce code, il manque une condition et ne calclule qu'à chaque itération la valeur $U_n$
+
+/!\ Éléments essentiels d’une méthode récursive
+- Un (ou plusieurs) cas de base
+  - Les valeurs d’entrées pour lesquelles on ne fait aucun appel récursif sont appelées les cas de base
+- Appels récursifs
+    - Appels de la méthode courante
+    - Chaque suite d’appels récursifs doit essentiellement se terminer sur un cas de base
+
 ---
 
-# Prêt pour la prochaine partie ? 😉 [C'est par ici](./.md)
+# Prêt pour la prochaine partie ? 😉 [C'est par ici](./Tri.md)

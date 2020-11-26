@@ -903,3 +903,277 @@ Fin
 /!\ ⚠ Si et seulement si vous avez des diffcultés à se rappeler ce qu'est la médianne et l'écart-Type, Voici deux liens :
     - [Médianne](https://fr.khanacademy.org/math/be-2eme-secondaire2/x291d358f50a246d9:traitement-de-donnees-1/x291d358f50a246d9:determiner-un-effectif-un-mode-une-frequence-la-moyenne-arithmetique-letendue-dun-ensemble-de-donnees-discretes/a/mean-median-and-mode-review#:~:text=Pour%20calculer%20la%20m%C3%A9diane%20%3A,des%20deux%20valeurs%20du%20milieu.)
     - [Écart-Type](https://fr.khanacademy.org/math/be-4eme-secondaire2/x213a6fc6f6c9e122:statistiques-1/x213a6fc6f6c9e122:variance-et-ecart-type/a/calculating-standard-deviation-step-by-step)
+
+#### Remplir
+```
+// Notre procedure ne renvoi rien et modifie direction les valeurs qui sont globales à l'algorithme
+PROCEDURE remplir(tableau[], tailleTableau : entiers) 
+  DEBUT
+       afficher("Combien d'élève comporte votre classe")
+       lire(tailleTableau)
+
+        pour i ← 0 à i < tailleTableau pour un pas de 1 faire
+            afficher("Note de l'élève : ")
+            lire(tableau[i])
+        fpour
+
+
+  FIN
+FPROCEDURE
+```
+
+#### Tri par Sélection
+```
+// Notre procedure prend en paramètre un tableau et sa taille et modifie directement nos valeurs
+Procedure triSelection(tableau[], tailleTableau : entier)
+  variables passage, compteur, indexMin, stock : entiers
+
+    DEBUT
+        POUR (passage <- 0 à passage < tailleTableau - 1 par pas de 1
+            indexMin <- passage;
+
+            POUR (compteur <- passage + 1 à compteur < tailleTableau par pas de 1 
+            SI (tableau[compteur] < tableau[indexMin]) alors
+                indexMin <- compteur;
+            FSI
+            FPOUR
+
+            Si passage <> indexMin
+                stock <- tab[passage];
+                tab[passage] <- tab[indexMin];
+                tab[indexMin] <- stock;
+            FSI
+
+        FPOUR
+    FIN
+FP
+```
+
+
+#### Note la plus haute
+```
+// Ici notre fonction prend en paramètre un tableau et sa taille et renvoi la note max
+Fonction renvoieMax(tableau[], tailleTableau : entier) : réels
+    variables compteur, noteMax : entiers
+    
+    compteur ← 0
+    noteMax ← tableau[0]
+
+    POUR compteur <- 0 à compteur < tailleTableau par pas de 1
+
+    // Si la noteMax temporaire est inférieure à la note actuelle
+    // Alors on stock celle-ci
+        SI noteMax < tableau[compteur] ALORS
+            noteMax ← tableau[compteur]
+        FSI
+    FPOUR
+
+    RETOURNE noteMax
+FF
+```
+
+#### Note la plus basse
+```
+Fonction renvoieMin(tableau[], tailleTableau : entier) : réel
+    variables compteur : entier
+                noteMin : réel
+
+    compteur ← 0
+    noteMin ← tableau[0]
+
+    POUR (compteur <- 0 à compteur < tailleTableau par pas de 1
+
+    // Si la noteMin temporaire est supérieure à la note actuelle
+    // Alors on stock celle-ci
+        SI noteMin > tableau[compteur] ALORS
+            noteMin ← tableau[compteur]
+        FSI
+    FPOUR
+
+    RETOURNE noteMin
+FF
+```
+
+
+#### Moyenne de la classe
+```
+Fonction renvoieMoyenne(tableau[], tailleTableau : entier) : réel
+    variables compteur : entier
+                noteMoy, somme : réel
+
+    compteur ← 0
+    noteMoy ← 0
+
+    POUR (compteur <- 0 à compteur < tailleTableau par pas de 1
+    // On fait la somme des élèments du tableau
+        somme ← somme + tableau[compteur]
+    FPOUR
+
+    // On retourne la moyenne
+    noteMoyenne ← somme / 2
+    RETOURNE noteMoyenne
+FF
+```
+
+#### Médianne de la classe
+```
+Fonction noteMed(tableau[], tailleTableau : entier) : réel
+     variables compteur : entier
+                noteMedianne : réel
+    
+    compteur ← 0
+    noteMedianne ← 0
+
+    // Si taille tableau n'est pas un multiple de deux 
+    // Alors nous avons le cas d'un tableau à nombre impair
+    SI tailleTableau % 2 != 0 ALORS
+
+        // Pour comprendre
+        // medianeIndexImpair ← (tailleTableau - 1) / 2
+        //  valeurMedianne ← tableau[medianeIndexImpair]
+
+        RETOURNE tableau[tailleTableau - 1 / 2]
+
+        SINON
+        // Pour comprendre
+        // medianeIndexPair1 ← (tailleTableau / 2) - 1
+        // medianeIndexPair2 ← tailleTableau / 2
+        // valeurMedianne ← (tableau[medianeIndex1] + tableau[medianeIndex2]) / 2
+
+            RETOURNE (tableau[(tailleTableau / 2)] + tableau[(tailleTableau / 2 - 1)]) / 2
+    FSI
+
+FF
+```
+
+
+#### L'écart-Type
+```
+Fonction renvoieEcartType(tableau[], tailleTableau : entier, noteMoyenne : réel) : réel
+    variables compteur : entier
+                equation : réel
+ 
+    compteur ← 0
+
+    POUR (compteur <- 0 à compteur < tailleTableau par pas de 1
+        equation ← equation + (tableau[compteur] - noteMoyenne) * (tableau[compteur] - noteMoyenne)
+    FPOUR
+
+        equation ← equation / tailleTableau
+
+        RETOURNE racineCarré(variance)
+FF
+```
+
+---
+
+Soit un tableau de N valeurs. 
+On doit écrire un algorithme saisissant un nombre et vérifier s'il est à l'intérieur ou non du tableau. 
+Noter en fonction du cas :
+- Le chiffre fait partie du tableau
+- Le chiffre ne fait pas partie du tableau
+_Le tableau est déjà rempli_
+
+```
+Début
+
+Afficher("Entrer un nombre")
+Lire(nombre)
+
+Pour compteur ← 0 à compteur < tailleTableau par pas de 1
+    Si tableau[compteur] == nombre alors
+        Afficher("Le nombre est dans le tableau")
+        Sinon Afficher("Le nombre n'est pas dans le tableau")
+    FSi
+FPour
+    
+Fin
+```
+
+```
+variable valeurTrouve : booléen
+valeurTrouve ← faux
+Début
+
+Afficher("Entrer un nombre")
+Lire(nombre)
+
+
+tant que nombre != tableau[compteur] et compteur < tailletableau
+    valeurTrouve ← false
+    compteur ← compteur + 1
+fin tant que 
+valeurTrouve ← true
+
+ si valeurTrouve = true 
+    Afficher("Le nombre est dans le tableau")
+     sinon Afficher("Le nombre n'est pas dans le tableau")
+fsi
+```    
+
+
+``` DENIS
+Fonction dansTableau(nombre, tableau, tailletableau)
+Variables compteur : entier
+Début
+    Pour compteur ← 0 à compteur < tailleTableau par pas de 1
+        Si tableau[compteur] == nombre alors
+            Renvoyer vrai
+        FSi
+    FPour
+    Renvoyer faux
+Fin
+``` 
+
+
+
+#### Tri + flag = Tri à bulle
+```
+Procedure triBulle(tableau[] : entier)
+  entier passage, compteur
+  entier stock
+  booléen trier
+
+
+  REPETER
+    trier ← vrai
+    POUR (compteur <- 0 à compteur < passage par pas de 1 
+      SI (tableau[compteur] > tableau[compteur + 1]) alors
+        stock <- tableau[compteur];
+        tableau[compteur] <- tableau[compteur + 1];
+        tableau[compteur + 1] <- stock;
+        trier ← faux
+      FSI
+    FPOUR
+    passage ← passage + 1
+  TANT QUE !trier
+FP
+```
+
+
+
+#### Tri à bulles
+```
+Procedure triBulle(tableau[] : entier)
+  entier passage, compteur
+  entier indexMin
+  entier stock
+  booléen trier
+
+
+  POUR (passage <- 0 à passage < tailleTableau - 1 par pas de 1
+    trier ← vrai
+    POUR (compteur <- 0 à compteur < tailleTableau par pas de 1 
+      SI (tableau[compteur] > tableau[compteur + 1]) alors
+        stock <- tableau[compteur];
+        tableau[compteur] <- tableau[compteur + 1];
+        tableau[compteur + 1] <- stock;
+        trier ← faux
+      FSI
+    FPOUR
+
+    SI trier == vrai ALORS
+        ONS
+  FPOUR
+FP
+```
