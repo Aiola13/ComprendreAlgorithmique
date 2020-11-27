@@ -102,6 +102,24 @@ Exemples :
 |    $O(a^n)$     |   Exponentielle    |
 |     $O(n!)$     |    Factorielle     |
 
+
+
+def factorielle(n):
+2 fact = 1 # initialisation: O(1)
+3 for i in range(2, n + 1): # n-1 itérations: O(n)
+4 fact = fact * i # multiplication + affectation: O(1)
+5 return fact
+
+
+
+Exemple 13 (même complexité, temps d’exécution différents). Les deux fonctions cidessous sont en O(n) :
+1 def fonction_1(n):
+2 for i in range(n):
+3 pass
+4
+5 def fonction_2(n):
+6 for i in range(n):
+7 print("Bonjour!")
 ### Algorithmes de complexité constante
 
 Algorithmes de complexité constante

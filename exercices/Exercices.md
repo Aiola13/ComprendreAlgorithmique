@@ -87,5 +87,146 @@
     - de renvoyer son écart-type
 
 /!\ ⚠ Si et seulement si vous avez des diffcultés à se rappeler ce qu'est la médianne et l'écart-Type, Voici deux liens :
-    - [Médianne](https://fr.khanacademy.org/math/be-2eme-secondaire2/x291d358f50a246d9:traitement-de-donnees-1/x291d358f50a246d9:determiner-un-effectif-un-mode-une-frequence-la-moyenne-arithmetique-letendue-dun-ensemble-de-donnees-discretes/a/mean-median-and-mode-review#:~:text=Pour%20calculer%20la%20m%C3%A9diane%20%3A,des%20deux%20valeurs%20du%20milieu.)
+    - [Médianne](https://fr.khanacademy.org/math/be-2eme-secondaire2/x291d358f50a246d9:traitement-de-donnees-1/x291d358f50a246d9:determiner-un-effectif-un-mode-une-frequence-la-moyenne-arithmetique-letendue-dun-ensemble-de-donnees-discretes/a/mean-median-and-mode-review#:~:text←Pour%20calculer%20la%20m%C3%A9diane%20%3A,des%20deux%20valeurs%20du%20milieu.)
     - [Écart-Type](https://fr.khanacademy.org/math/be-4eme-secondaire2/x213a6fc6f6c9e122:statistiques-1/x213a6fc6f6c9e122:variance-et-ecart-type/a/calculating-standard-deviation-step-by-step)
+
+
+---
+
+## Récursivité 
+Ecrire la fonction $n!$ en récursive
+formule : $n! = 1 * 2 * ... * (n - 1) * n$
+
+```
+function factorielle(n)
+  SI n > 1   
+    RETOURNE n * factorielle(n - 1)
+  FSI
+  
+  RETOURNE 1
+```
+![img](../images/fact.png)
+
+
+## Recherche Dichotomique
+Ecrire une fonction qui recherche un élèment dans un tableau
+
+```
+function rechercheDichotomique(tableau, min, max, valeur){ //Entrée : un tableau trié, les indices entre lesquels on cherche, et la valeur à chercher
+    // Si on cherche entre deux indices égaux, c'est-à-dire qu'on n'a qu'une valeur à tester :
+	SI min == max { 
+    SI tableau[min] == value
+        RETOURNE min
+        SINON
+          RETOURNE null
+    FSI
+  FSI
+    // Sinon : on calcule l'indice médian et on cherche d'un côté ou de l'autre
+
+
+
+    var i_mid = floor((i_max + i_min)/2);
+    // Si cet indice a une valeur associée dans le tableau égale à ce qu'on cherche, c'est gagné.
+    if ( array[i_mid] === value ) {
+		return i_mid;
+    }
+
+
+    // Sinon, on regarde de quel côté il faut chercher.
+    if ( value < array[i_mid] ) { 
+        return dichotomicSearchBetween(array, i_min , i_mid - 1, value); 
+    } else {
+        return dichotomicSearchBetween(array, i_mid + 1, i_max, value);
+    }
+}
+
+// Pour éviter d'écrire 0 et count(array) - 1, on peut alors définir :
+fonction dichotomicSearch(@array, @value){
+    return dichotomicSearchBetween(array, 0, count(array) - 1, value);
+}
+```
+
+
+## Complexité
+Calculer la complexité des fonctions ci-dessous :
+
+```
+fonction conversion(n : entier):
+    variable h, m, s, t : entier
+
+    h ← n // 3600
+    m ← (n - 3600 * h) // 60
+    s ← n % 60
+    RETOURNE t[h,m,s]
+FF
+```
+
+```
+fonction puissanceMoinsUn(n):
+  variable h, m, s : entier
+
+   SI n % 2 == 0 ALORS
+      res ← 1
+      SINON
+        res ← -1
+    FSI
+
+   RETOURNE res
+FF
+```
+
+```
+fonction sommeEntiers(tableau, n):
+  variable somme, i : entier
+
+  somme ← 0
+
+  POUR i ← 0 à i < n
+    somme ← sommme + tableau[i]
+  FPOUR
+
+  RETOURNE somme
+FF
+```
+
+
+```
+fonction factorielle(n):
+  variable fact, i : entier
+
+  fact ← 1 
+  i ← 2
+
+  TANT QUE i <= n
+    fact ← fact * i
+    i ← i + 1
+  FTQ
+
+  RETOURNE fact
+FF
+```
+
+```
+Procedure triSelection(tableau[], tailleTableau : entier)
+  variables passage, compteur, indexMin, stock : entiers
+
+    DEBUT
+        POUR passage <- 0 à passage < tailleTableau - 1
+            indexMin <- passage;
+
+            POUR (compteur <- passage + 1 à compteur < tailleTableau
+              SI (tableau[compteur] < tableau[indexMin]) alors
+                  indexMin <- compteur;
+              FSI
+            FPOUR
+
+            Si passage <> indexMin
+                stock <- tab[passage];
+                tab[passage] <- tab[indexMin];
+                tab[indexMin] <- stock;
+            FSI
+
+        FPOUR
+    FIN
+FP
+```
