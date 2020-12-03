@@ -2,15 +2,10 @@
 
 Il existe une multitude de façon de trier un tableau.
 
-En voici une liste non exhaustive :
-
-## Tri par sélection
-
-## Tri à Bulle
-
-## Tri rapide (QuickSort)
-
-
+En voici une liste non exhaustive : [Tri](../exercices/correction.md)
+- Tri par sélection
+- Tri à Bulle
+- Tri rapide (QuickSort)
 
 # Introduction à la Complexité d'un algorithme
 
@@ -30,7 +25,7 @@ La complexité d'un algorithme est une mesure du temps (nombre d'étapes) requis
 Cela peut sembler évident a posteriori, mais voilà : pour calculer la complexité d'un algorithme donné, il convient tout d'abord de compter le nombre d'opérations élémentaires impliquées par son exécution.
 
 Puisqu'il s'agit seulement de comparer des algorithmes, les règles de ce calcul doivent être indépendantes : 
-- dulangage de programmation utilisé
+- du langage de programmation utilisé
 - du processuer de lordinateur sur lequel sera exécuté le code
 - de l'éventuel compulateur employé
 
@@ -39,24 +34,19 @@ Par soucis de simplicité, on fera l’hypothèse que toutes les opérations él
 
 Exemple : `a = b * 3`  : 1 multiplication + 1 affectation = 2 « unités »
 
-La complexité en temps d’un algorithme sera exprimé par une fonction, notée T (pour Time), qui dépend :
+La complexité en temps d’un algorithme sera exprimé par une fonction, notée T (pour Time) ou C (pou complexité), qui dépend :
 - de la taille des données passées en paramètres : plus ces données seront volumineuses, plus il faudra d’opérations élémentaires pour les traiter.
 On notera n le nombre de données à traiter.
-- de la donnée en elle même, de la façon dont sont réparties les différentes valeurs qui la constituent.
-par exemple, si on effectue une recherche séquentielle d’un élément dans une liste non triée, on parcourt un par un les éléments jusqu’à trouver, ou pas, celui recherché. Ce parcours peut s’arrêter dès le début si le premier élément est « le bon ». Mais on peut également être amené à parcourir la liste en entier si l’élément cherché est en dernière position, ou même n’y figure pas.
-Cette remarque nous conduit à préciser un peu notre définition de la complexité en temps. En toute rigueur, on peut en effet distinguer deux formes de complexité en temps :
 
-la complexité dans le meilleur des cas : c’est la situation la plus favorable,
-par exemple : recherche d’un élément situé à la première position d’une liste
-la complexité dans le pire des cas : c’est la situation la plus défavorable,
+- de la donnée en elle même, de la façon dont sont réparties les différentes valeurs qui la constituent.
+par exemple, une recherche dans un tableau où la recherche peut s'arréter dès la première itération si la valeur est trouvée.
+
+Cette remarque nous conduit à préciser un peu notre définition de la complexité en temps. En toute rigueur, on peut en effet distinguer deux formes de complexité en temps :
+- la complexité dans le meilleur des cas : c’est la situation la plus favorable,
+par exemple : recherche d’un élément situé à la première position d’un tableau.
+- la complexité dans le pire des cas : c’est la situation la plus défavorable,
 par exemple : recherche d’un élément dans une liste alors qu’il n’y figure pas
 On calculera le plus souvent la complexité dans le pire des cas, car elle est la plus pertinente. Il vaut mieux en effet toujours envisager le pire.
-
-
-Notation dans le pire des cas
-dans le meileur des cas
-
-STABLE / NON STABLE
 
 
 ###  Ordre de grandeur : **$O$**
@@ -104,22 +94,6 @@ Exemples :
 
 
 
-def factorielle(n):
-2 fact = 1 # initialisation: O(1)
-3 for i in range(2, n + 1): # n-1 itérations: O(n)
-4 fact = fact * i # multiplication + affectation: O(1)
-5 return fact
-
-
-
-Exemple 13 (même complexité, temps d’exécution différents). Les deux fonctions cidessous sont en O(n) :
-1 def fonction_1(n):
-2 for i in range(n):
-3 pass
-4
-5 def fonction_2(n):
-6 for i in range(n):
-7 print("Bonjour!")
 ### Algorithmes de complexité constante
 
 Algorithmes de complexité constante
@@ -181,6 +155,8 @@ Souvent, les algorithmes de ce genre auront la propriété suivante: on leur don
 
 Exemple de recherche dichotomique
 
+```
 
 
+## Tableau multidimentiennelle / Matrice
 ```

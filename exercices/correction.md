@@ -922,7 +922,7 @@ PROCEDURE remplir(tableau[], tailleTableau : entiers)
 FPROCEDURE
 ```
 
-#### Tri par Sélection
+#### <span id="tri-par-selection">Tri par Sélection</span>
 ```
 // Notre procedure prend en paramètre un tableau et sa taille et modifie directement nos valeurs
 Procedure triSelection(tableau[], tailleTableau : entier)
@@ -1184,8 +1184,163 @@ FP
 Ecrire la fonction $n!$ en récursive
 formule : $n! = 1 * 2 * ... * (n - 1) * n$
 
+```
+function factorielle(n)
+  SI n > 1   
+    RETOURNE n * factorielle(n - 1)
+  FSI
+  
+  RETOURNE 1
+```
+![img](../images/fact.png)
+
 ## Recherche Dichotomique
 Ecrire une fonction qui recherche un élèment dans un tableau
+
+- Normal
+```
+fonction dichotomie(tab, tailleTableau, x)
+    variables milieu, gauche, droite : entiers
+    gauche ← 0
+    droite ← tailleTableau
+
+    DEBUT
+        
+        RÉPÉTER
+            milieu ← (gauche + droite)/2
+            SI x < tab[milieu] ALORS 
+                droite ← milieu − 1
+
+            SI x > tab[milieu] ALORS 
+                gauche ← milieu + 1
+
+        TANT QUE (gauche <= droite) OU (tab[milieu] != x)
+
+        SI gauche == droite alors 
+            milieu ← tailleTableau
+
+        RETOURNE milieu
+    FIN
+```
+
+- Récursive
+```
+fonction rechercheDichotomique(tableau, gauche, droite, x){ //Entrée : un tableau trié, les indices entre lesquels on cherche, et la valeur à chercher
+    variables milieu, gauche, droite : entiers
+
+    DEBUT
+        // Si on cherche entre deux indices égaux, c'est-à-dire qu'on n'a qu'une valeur à tester :
+        SI gauche == droite ALORS
+            SI tableau[gauche] == x ALORS
+                RETOURNE gauche
+                SINON
+                    RETOURNE null
+            FSI
+        FSI
+        // Sinon : on calcule l'indice médian et on cherche d'un côté ou de l'autre
+
+
+
+        milieu ← (gauche + droite)/2
+
+        // Si cet indice a une valeur associée dans le tableau égale à ce qu'on cherche, c'est gagné.
+        SI tableau[milieu] == x ALORS
+            RETOURNE milieu
+
+
+        // Sinon, on regarde de quel côté il faut chercher.
+        SI x < tableau[milieu] ALORS
+            RETOURNE rechercheDichotomique(tableau, gauche , milieu - 1, x)
+            SINON
+                RETOURNE rechercheDichotomique(tableau, gauche + 1, droite, x)
+
+    FIN
+```
+
+## Diviser pour mieux régner MUAHAHA 👿
+
+Stratégie du choix de pivot :
+
+- Toujours choisir le premier élément.
+- Toujours choisir le dernier élément.
+- Toujours choisir l'élément du milieu.
+- Choisir un élément au hasard.
+- Choisir la valeur médiane (basée sur trois éléments).
+
+
+- Partitionnement 1ere méthode
+```
+fonction partitionnement(tableau, debut, fin)
+    variable j, compteur, pivot, stock: entier
+    pivot ← tableau[fin]
+    j ← debut
+
+    POUR comtpeur ← debut à compteur < fin faire
+        SI tableau[comtpeur] < tableau[fin] alors
+
+            //échanger tableau[comtpeur] et tableau[j]
+            stock ← tableau[comtpeur]
+            tableau[comtpeur] ← tableau[j]
+            tableau[j] ← stock
+
+            j ← j + 1
+        FSI
+    FPOUR
+
+    //échanger tableau[j] et tableau[fin]
+    stock ← tableau[j]
+    tableau[j] ← tableau[fin]
+    tableau[fin] ← stock
+
+    RETOURNE j
+FF
+```
+
+- Partitionnement 2ème méthode
+```
+fonction partitionnement(tableau, debut, fin)
+    variable compteur, pivot, stock: entier
+    pivot ← fin
+
+    POUR comtpeur ← debut à compteur < pivot par pas de 1 faire
+        SI tableau[compteur] > tableau[pivot] alors
+
+            //échange
+            stock ← tableau[compteur]
+            tableau[compteur] ← tableau[pivot - 1]
+            tableau[pivot - 1] ← tableau[pivot]
+            tableau[pivot] ← stock
+            compteur ← compteur - 1
+            pivot ← pivot - 1
+
+        FSI
+    FPOUR
+
+    RETOURNE pivot
+FF
+```
+
+
+
+- Tri Rapide
+```
+procedure triRapide(tableau, debut, fin)
+    SI debut < fin ALORS
+        positionPivot ← partitionner(T, debut, fin)
+        triRapide(tableau, debut, positionPivot − 1)
+        triRapide(tableau, positionPivot + 1, fin)
+    FSI
+FP
+```
+
+- Tester l'algo avec les tableaux suivants 
+  - [8, 2, 9, 1, 4]
+  - [2, 1, 6, 9, 8, 4]
+  - [4, 3, 5, 9, 1, 2, 7, 8, 6]
+
+## Tableau Multidimentionnel / Matrice
+- Ecrire un algo qui rempli un tableau de 6 par 12
+- Ecrire un algo qui recherche un la plus grande valeur (et son indice) dans un tableau de 6 par 12, rempli préalablement.
 
 ## Complexité
 
@@ -1193,18 +1348,23 @@ Ecrire une fonction qui recherche un élèment dans un tableau
 Calculer la complexité des fonctions ci-dessous :
 
 ```
-fonction conversion(n : entier):
+fonction conversion(n : entier)
     variable h, m, s, t : entier
 
-    h ← n // 3600
-    m ← (n - 3600 * h) // 60
+    h ← n
+    m ← (n - 3600 * h)
     s ← n % 60
     RETOURNE t[h,m,s]
 FF
 ```
+Réponse :
+$C(n) = 1 + 3 + 2 + 1$
+$C(n) = 7$
+$C(n) = O(1)$
+
 
 ```
-fonction puissanceMoinsUn(n):
+fonction puissanceMoinsUn(n)
   variable h, m, s : entier
 
    SI n % 2 == 0 ALORS
@@ -1216,24 +1376,33 @@ fonction puissanceMoinsUn(n):
    RETOURNE res
 FF
 ```
+Réponse :
+$C(n) = 2 + 1 + 1$
+$C(n) = 4$
+$C(n) = O(1)$
+
 
 ```
-fonction sommeEntiers(tableau, n):
+fonction sommeEntiers(tableau, n)
   variable somme, i : entier
 
   somme ← 0
 
-  POUR i ← 0 à i < n
+  POUR i ← 0 à i < n par pas de 1 faire
     somme ← sommme + tableau[i]
   FPOUR
 
   RETOURNE somme
 FF
 ```
+Réponse :
+$C(n) = 1 + 1 + 2(n - 1) + 3(n - 1) + 1$
+$C(n) = 3 + 5(n - 1)$
+$C(n) = O(n)$
 
 
 ```
-fonction factorielle(n):
+fonction factorielle(n)
   variable fact, i : entier
 
   fact ← 1 
@@ -1247,16 +1416,22 @@ fonction factorielle(n):
   RETOURNE fact
 FF
 ```
+Réponse :
+$C(n) = 2 + 2n + 2n + 2n + 1$
+$C(n) = 3 + 6n$
+$C(n) = O(n)$
+
+
 
 ```
 Procedure triSelection(tableau[], tailleTableau : entier)
   variables passage, compteur, indexMin, stock : entiers
 
     DEBUT
-        POUR passage <- 0 à passage < tailleTableau - 1
+        POUR passage <- 0 à passage < tailleTableau - 1 par pas de 1 FAIRE
             indexMin <- passage;
 
-            POUR (compteur <- passage + 1 à compteur < tailleTableau
+            POUR (compteur <- passage + 1 à compteur < tailleTableau par pas de 1 FAIRE
               SI (tableau[compteur] < tableau[indexMin]) alors
                   indexMin <- compteur;
               FSI
@@ -1272,3 +1447,9 @@ Procedure triSelection(tableau[], tailleTableau : entier)
     FIN
 FP
 ```
+Réponse :
+$C(n) = 1 + 1 + n(3 + 4) * 4n$
+$C(n) = 2 + 7n * 4n$
+$C(n) = 2 + 28n^2$
+$C(n) = O(n^2)$
+

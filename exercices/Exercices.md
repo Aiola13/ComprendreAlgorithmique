@@ -97,55 +97,22 @@
 Ecrire la fonction $n!$ en récursive
 formule : $n! = 1 * 2 * ... * (n - 1) * n$
 
-```
-function factorielle(n)
-  SI n > 1   
-    RETOURNE n * factorielle(n - 1)
-  FSI
-  
-  RETOURNE 1
-```
-![img](../images/fact.png)
-
-
 ## Recherche Dichotomique
-Ecrire une fonction qui recherche un élèment dans un tableau
 
-```
-function rechercheDichotomique(tableau, min, max, valeur){ //Entrée : un tableau trié, les indices entre lesquels on cherche, et la valeur à chercher
-    // Si on cherche entre deux indices égaux, c'est-à-dire qu'on n'a qu'une valeur à tester :
-	SI min == max { 
-    SI tableau[min] == value
-        RETOURNE min
-        SINON
-          RETOURNE null
-    FSI
-  FSI
-    // Sinon : on calcule l'indice médian et on cherche d'un côté ou de l'autre
+## Diviser pour mieux régner MUAHAHA 👿
+En s'aidant des exercices précédents, comment érirez vous l'algorithme qui fait un tri rapide
+- Partitionnement 
 
+- Tri Rapide
+  
+- Tester l'algo avec les tableaux suivants 
+  - [8, 2, 9, 1, 4]
+  - [2, 1, 6, 9, 8, 4]
+  - [4, 3, 5, 9, 1, 2, 7, 8, 6]
 
-
-    var i_mid = floor((i_max + i_min)/2);
-    // Si cet indice a une valeur associée dans le tableau égale à ce qu'on cherche, c'est gagné.
-    if ( array[i_mid] === value ) {
-		return i_mid;
-    }
-
-
-    // Sinon, on regarde de quel côté il faut chercher.
-    if ( value < array[i_mid] ) { 
-        return dichotomicSearchBetween(array, i_min , i_mid - 1, value); 
-    } else {
-        return dichotomicSearchBetween(array, i_mid + 1, i_max, value);
-    }
-}
-
-// Pour éviter d'écrire 0 et count(array) - 1, on peut alors définir :
-fonction dichotomicSearch(@array, @value){
-    return dichotomicSearchBetween(array, 0, count(array) - 1, value);
-}
-```
-
+## Tableau Multidimentionnel / Matrice
+- Ecrire un algo qui rempli un tableau de 6 par 12
+- Ecrire un algo qui recherche un la plus grande valeur (et son indice) dans un tableau de 6 par 12, rempli préalablement.
 
 ## Complexité
 Calculer la complexité des fonctions ci-dessous :
