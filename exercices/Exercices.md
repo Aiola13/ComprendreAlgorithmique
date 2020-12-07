@@ -112,7 +112,7 @@ En s'aidant des exercices précédents, comment érirez vous l'algorithme qui fa
 
 ## Tableau Multidimentionnel / Matrice
 - Ecrire un algo qui rempli un tableau de 6 par 12
-- Ecrire un algo qui recherche un la plus grande valeur (et son indice) dans un tableau de 6 par 12, rempli préalablement.
+- Ecrire un algo qui recherche la plus grande valeur (et son indice) dans un tableau de 6 par 12, rempli préalablement.
 
 ## Complexité
 Calculer la complexité des fonctions ci-dessous :
@@ -197,3 +197,17 @@ Procedure triSelection(tableau[], tailleTableau : entier)
     FIN
 FP
 ```
+
+
+
+
+## TocTacToe
+
+(2 joueurs)
+Ecrire un algorithme du jeu du morpion
+L’ordinateur demande à l’utilisateur dans quelle case il veut jouer.
+On vérifie si la case a déjà été jouée.
+Les caractères à utiliser sont X ou O.
+jusqu'à former une ligne, colonne ou diagonale
+
+Contrainte Faire des fonctions et procédures

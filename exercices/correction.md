@@ -1453,3 +1453,130 @@ $C(n) = 2 + 7n * 4n$
 $C(n) = 2 + 28n^2$
 $C(n) = O(n^2)$
 
+
+## TocTacToe
+
+(2 joueurs)
+Ecrire un algorithme du jeu du morpion
+L’ordinateur demande à l’utilisateur dans quelle case il veut jouer.
+On vérifie si la case a déjà été jouée.
+Les caractères à utiliser sont X ou O.
+jusqu'à former une ligne, colonne ou diagonale
+
+Contrainte Faire des fonctions et procédures
+
+| case[0,0] | case[1,0] | case[2,0] |
+| :-------: | :-------: | :-------: |
+| case[0,1] | case[1,1] | case[2,1] |
+| case[0,2] | case[1,2] | case[2,2] |
+
+```js
+Variables platleauDeJeu[3,3], caseJoueur[], joueur, joueurGagnant: caractères
+        
+joueur ← "X"
+joueurGagnant ← ""
+
+Début
+nouveauJeu(plateuDeJeu)
+
+REPETER
+
+afficher("Dans qu'elle case voulez vous jouer ? (colonne et ligne")
+lire(caseJouer[0])
+lire(caseJouer[1])
+
+verifierCase(caseJouer[], plateauDeJeu[], joueur)
+joueur ← prochainJoueur(joueur)
+joueurGagnant ← verifierVictoire(plateauDeJeu[])
+
+
+TANT QUE joueurGagnant == ""
+
+afficher("gagnant est", joueurGagnant)
+
+Fin
+
+
+
+
+precedure nouveauJeu(plateaudeJeu)
+variables i, j : entier
+Début
+
+    POUR i ← 0 à i < 2 par pas de 1
+        POUR j ← 0 à j < 2 par pas de 1
+            plateauDeJeu[i, j] = ""
+        FPOUR
+    FPOUR
+
+Fin
+
+
+
+procedure verifierCase(caseJouer[], plateauDeJeu[])
+variable caseVerifiee : booléen
+caseVerifiee ← false
+
+Début
+
+REPETER 
+    SI caseJouer[0] >= 0 ET caseJouer[0] < 3 ET caseJouer[1] >= 0 ET caseJouer[1] < 3 ALORS
+        SI plateauDeJeu[caseJouer[0], caseJouer[1]] != "" ALORS
+            afficher("case non vide")
+            SINON 
+                plateauDeJeu[caseJouer[0], caseJouer[1]] ← joueur
+                caseVerifiee ← true 
+        FSI
+    FSI
+TANT QUE !caseVerifiee
+
+Fin
+
+
+fonction prochainJoueur(joueur)
+Debut
+Si joueur == "X" ALORS
+    joueur ← "X"
+    SINON
+        joueur ← "O"
+FSI
+
+RETOURNE joueur
+
+Fin
+
+
+
+
+
+fonction verifierVictoire(plateauDeJeu[])
+variable joueurGagnant : caractère
+        i : entier
+
+        joueurGagnant ← ""
+
+Début
+    POUR i ← 0 à i < 3 par pas de 1
+        SI plateauDeJeu[0, i] == plateauDeJeu[1, i] ET plateauDeJeu[1, i] == plateauDeJeu[2, i] et plateauDeJeu[0, i] != "" ALORS
+            joueurGagnant ← plateauDeJeu[0, i]
+            RETOURNE joueurGagnant
+        FSI       
+    FPOUR
+
+    POUR i ← 0 à i < 3 par pas de 1
+        SI plateauDeJeu[i, 0] == plateauDeJeu[i, 1] ET plateauDeJeu[i, 1] == plateauDeJeu[i, 2] et plateauDeJeu[i, 0] != "" ALORS
+            joueurGagnant ← plateauDeJeu[i, 0]
+            RETOURNE joueurGagnant
+        FSI   
+    FPOUR
+
+    SI (plateauDeJeu[0, 0] == plateauDeJeu[1, 1] ET plateauDeJeu[1, 1] == plateauDeJeu[2, 2]) OU (plateauDeJeu[2, 0] == plateauDeJeu[1, 1] ET plateauDeJeu[1, 1] == plateauDeJeu[0, 2]) ET plateauDeJeu[1, 1] != "" ALORS
+        joueurGagnant ← plateauDeJeu[1, 1]
+            RETOURNE joueurGagnant
+    FSI   
+
+    RETROURNE joueurGagnant
+Fin
+
+
+```
